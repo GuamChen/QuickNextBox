@@ -1,0 +1,6 @@
+framework module Pods_QuickNextBox {
+  umbrella header "Pods-QuickNextBox-umbrella.h"
+
+  export *
+  module * { export * }
+}

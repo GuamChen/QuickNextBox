@@ -1,0 +1,14 @@
+
+/* Common */
+"welcome" = "Welcome";
+"back" = "Back";
+"save" = "Save";
+"cancel" = "Cancel";
+
+/* Home */
+"home_title" = "Home";
+"home_description" = "This is home page";
+
+/* User */
+"user_profile" = "Profile";
+"user_settings" = "Settings";

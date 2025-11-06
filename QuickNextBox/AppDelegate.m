@@ -1,11 +1,13 @@
 //
 //  AppDelegate.m
-//  QuickNextBox
+//  Muren
 //
-//  Created by lgc on 2025/11/6.
+//  Created by lgc on 2025/10/28.
 //
 
 #import "AppDelegate.h"
+
+#import "MainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -13,28 +15,46 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // 创建窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    // 设置主控制器为 TabBarController
+    MainTabBarController *tabBarController = [[MainTabBarController alloc] init];
+    self.window.rootViewController = tabBarController;
+        
+    // 设置窗口背景色
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // 显示窗口（只需要调用一次）
+    [self.window makeKeyAndVisible];
+    
+    // 可选：设置全局导航栏样式
+    [self setupGlobalAppearance];
+    
     return YES;
 }
 
-
-#pragma mark - UISceneSession lifecycle
-
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+- (void)setupGlobalAppearance {
+    if (@available(iOS 13.0, *)) {
+        UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundColor = [UIColor systemBackgroundColor];
+        appearance.titleTextAttributes = @{
+            NSForegroundColorAttributeName: [UIColor labelColor],
+            NSFontAttributeName: [UIFont systemFontOfSize:17 weight:UIFontWeightSemibold]
+        };
+        
+        [UINavigationBar appearance].standardAppearance = appearance;
+        [UINavigationBar appearance].scrollEdgeAppearance = appearance;
+    } else {
+        [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+        [[UINavigationBar appearance] setTitleTextAttributes:@{
+            NSForegroundColorAttributeName: [UIColor blackColor],
+            NSFontAttributeName: [UIFont systemFontOfSize:17 weight:UIFontWeightSemibold]
+        }];
+    }
 }
-
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-}
-
 
 @end

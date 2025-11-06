@@ -1,12 +1,13 @@
 //
 //  main.m
-//  QuickNextBox
+//  Muren
 //
-//  Created by lgc on 2025/11/6.
+//  Created by lgc on 2025/10/28.
 //
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+
 
 int main(int argc, char * argv[]) {
     NSString * appDelegateClassName;
