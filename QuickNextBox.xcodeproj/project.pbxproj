@@ -8,22 +8,68 @@
 
 /* Begin PBXBuildFile section */
 		A9D5A8043190250A8BAA1A1A /* Pods_QuickNextBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAC4DB4E73FA258AD05AF65 /* Pods_QuickNextBox.framework */; };
+		C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C353C0C12EBF3DF2009DF25C /* Assets.xcassets */; };
+		C353C0CD2EBF3DF2009DF25C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C353C0C42EBF3DF2009DF25C /* LaunchScreen.storyboard */; };
+		C353C0CE2EBF3DF2009DF25C /* LaunchScreen.strings in Resources */ = {isa = PBXBuildFile; fileRef = C353C0C72EBF3DF2009DF25C /* LaunchScreen.strings */; };
+		C353C0CF2EBF3DF2009DF25C /* MBHudDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A22EBF3DF2009DF25C /* MBHudDemoVC.m */; };
+		C353C0D02EBF3DF2009DF25C /* AccelerometerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A42EBF3DF2009DF25C /* AccelerometerVC.m */; };
+		C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */; };
+		C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A92EBF3DF2009DF25C /* HomeVC.m */; };
+		C353C0D32EBF3DF2009DF25C /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0AB2EBF3DF2009DF25C /* MainTabBarController.m */; };
+		C353C0D42EBF3DF2009DF25C /* ProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0AD2EBF3DF2009DF25C /* ProfileVC.m */; };
+		C353C0D52EBF3DF2009DF25C /* TabBarItemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0AF2EBF3DF2009DF25C /* TabBarItemConfig.m */; };
+		C353C0D62EBF3DF2009DF25C /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0B32EBF3DF2009DF25C /* MBProgressHUD.m */; };
+		C353C0D72EBF3DF2009DF25C /* TSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0B62EBF3DF2009DF25C /* TSUserDefaults.m */; };
+		C353C0D82EBF3DF2009DF25C /* LanguageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0BA2EBF3DF2009DF25C /* LanguageManager.m */; };
+		C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0BD2EBF3DF2009DF25C /* NSString+Localized.m */; };
+		C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C02EBF3DF2009DF25C /* AppDelegate.m */; };
+		C353C0DB2EBF3DF2009DF25C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C82EBF3DF2009DF25C /* main.m */; };
+		C3A426442EBF4485006E1200 /* 草稿纸 in Sources */ = {isa = PBXBuildFile; fileRef = C3A426432EBF4485006E1200 /* 草稿纸 */; };
+		C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A426462EBF5F0D006E1200 /* MotionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3142F4723A8A0AC3467C0D90 /* Pods-QuickNextBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNextBox.debug.xcconfig"; path = "Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox.debug.xcconfig"; sourceTree = "<group>"; };
 		BCAC4DB4E73FA258AD05AF65 /* Pods_QuickNextBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuickNextBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C353BD8A2EBCFD53009DF25C /* QuickNextBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickNextBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C353C0A12EBF3DF2009DF25C /* MBHudDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBHudDemoVC.h; sourceTree = "<group>"; };
+		C353C0A22EBF3DF2009DF25C /* MBHudDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBHudDemoVC.m; sourceTree = "<group>"; };
+		C353C0A32EBF3DF2009DF25C /* AccelerometerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccelerometerVC.h; sourceTree = "<group>"; };
+		C353C0A42EBF3DF2009DF25C /* AccelerometerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccelerometerVC.m; sourceTree = "<group>"; };
+		C353C0A62EBF3DF2009DF25C /* DiscoverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
+		C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
+		C353C0A82EBF3DF2009DF25C /* HomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		C353C0A92EBF3DF2009DF25C /* HomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
+		C353C0AA2EBF3DF2009DF25C /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		C353C0AB2EBF3DF2009DF25C /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		C353C0AC2EBF3DF2009DF25C /* ProfileVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileVC.h; sourceTree = "<group>"; };
+		C353C0AD2EBF3DF2009DF25C /* ProfileVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileVC.m; sourceTree = "<group>"; };
+		C353C0AE2EBF3DF2009DF25C /* TabBarItemConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarItemConfig.h; sourceTree = "<group>"; };
+		C353C0AF2EBF3DF2009DF25C /* TabBarItemConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarItemConfig.m; sourceTree = "<group>"; };
+		C353C0B22EBF3DF2009DF25C /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		C353C0B32EBF3DF2009DF25C /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		C353C0B52EBF3DF2009DF25C /* TSUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSUserDefaults.h; sourceTree = "<group>"; };
+		C353C0B62EBF3DF2009DF25C /* TSUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSUserDefaults.m; sourceTree = "<group>"; };
+		C353C0B72EBF3DF2009DF25C /* TSUserDefaults__Key.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSUserDefaults__Key.h; sourceTree = "<group>"; };
+		C353C0B92EBF3DF2009DF25C /* LanguageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LanguageManager.h; sourceTree = "<group>"; };
+		C353C0BA2EBF3DF2009DF25C /* LanguageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LanguageManager.m; sourceTree = "<group>"; };
+		C353C0BB2EBF3DF2009DF25C /* LocalizedMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedMacro.h; sourceTree = "<group>"; };
+		C353C0BC2EBF3DF2009DF25C /* NSString+Localized.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Localized.h"; sourceTree = "<group>"; };
+		C353C0BD2EBF3DF2009DF25C /* NSString+Localized.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localized.m"; sourceTree = "<group>"; };
+		C353C0BF2EBF3DF2009DF25C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C353C0C02EBF3DF2009DF25C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C353C0C12EBF3DF2009DF25C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C353C0C22EBF3DF2009DF25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C353C0C32EBF3DF2009DF25C /* Base 2 */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "Base 2"; path = "Base 2.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		C353C0C52EBF3DF2009DF25C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C353C0C62EBF3DF2009DF25C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C353C0C82EBF3DF2009DF25C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
+		C3A426452EBF5F02006E1200 /* MotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionManager.h; sourceTree = "<group>"; };
+		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
 		D92DCE89C5368011024D4CAE /* Pods-QuickNextBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNextBox.release.xcconfig"; path = "Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		C353BD8C2EBCFD53009DF25C /* QuickNextBox */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = QuickNextBox;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C353BD872EBCFD53009DF25C /* Frameworks */ = {
@@ -57,7 +103,9 @@
 		C353BD812EBCFD53009DF25C = {
 			isa = PBXGroup;
 			children = (
-				C353BD8C2EBCFD53009DF25C /* QuickNextBox */,
+				C353C0CA2EBF3DF2009DF25C /* QuickNextBox */,
+				C353C0B42EBF3DF2009DF25C /* SDK */,
+				C353C0BE2EBF3DF2009DF25C /* Tool */,
 				C353BD8B2EBCFD53009DF25C /* Products */,
 				9C8F78EBA6A686326DA53AA1 /* Pods */,
 				49DA3749FD0E8738BA72B1AB /* Frameworks */,
@@ -70,6 +118,94 @@
 				C353BD8A2EBCFD53009DF25C /* QuickNextBox.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C353C0A52EBF3DF2009DF25C /* DemoPages */ = {
+			isa = PBXGroup;
+			children = (
+				C353C0A12EBF3DF2009DF25C /* MBHudDemoVC.h */,
+				C353C0A22EBF3DF2009DF25C /* MBHudDemoVC.m */,
+				C353C0A32EBF3DF2009DF25C /* AccelerometerVC.h */,
+				C353C0A42EBF3DF2009DF25C /* AccelerometerVC.m */,
+			);
+			path = DemoPages;
+			sourceTree = "<group>";
+		};
+		C353C0B02EBF3DF2009DF25C /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				C353C0A62EBF3DF2009DF25C /* DiscoverVC.h */,
+				C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */,
+				C353C0A82EBF3DF2009DF25C /* HomeVC.h */,
+				C353C0A92EBF3DF2009DF25C /* HomeVC.m */,
+				C353C0AC2EBF3DF2009DF25C /* ProfileVC.h */,
+				C353C0AD2EBF3DF2009DF25C /* ProfileVC.m */,
+				C353C0AA2EBF3DF2009DF25C /* MainTabBarController.h */,
+				C353C0AB2EBF3DF2009DF25C /* MainTabBarController.m */,
+				C353C0AE2EBF3DF2009DF25C /* TabBarItemConfig.h */,
+				C353C0AF2EBF3DF2009DF25C /* TabBarItemConfig.m */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		C353C0B12EBF3DF2009DF25C /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				C353C0A52EBF3DF2009DF25C /* DemoPages */,
+				C353C0B02EBF3DF2009DF25C /* Tabbar */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		C353C0B42EBF3DF2009DF25C /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				C353C0B22EBF3DF2009DF25C /* MBProgressHUD.h */,
+				C353C0B32EBF3DF2009DF25C /* MBProgressHUD.m */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		C353C0B82EBF3DF2009DF25C /* TSUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				C353C0B52EBF3DF2009DF25C /* TSUserDefaults.h */,
+				C353C0B62EBF3DF2009DF25C /* TSUserDefaults.m */,
+				C353C0B72EBF3DF2009DF25C /* TSUserDefaults__Key.h */,
+			);
+			path = TSUserDefaults;
+			sourceTree = "<group>";
+		};
+		C353C0BE2EBF3DF2009DF25C /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				C3A426452EBF5F02006E1200 /* MotionManager.h */,
+				C3A426462EBF5F0D006E1200 /* MotionManager.m */,
+				C353C0B82EBF3DF2009DF25C /* TSUserDefaults */,
+				C353C0B92EBF3DF2009DF25C /* LanguageManager.h */,
+				C353C0BA2EBF3DF2009DF25C /* LanguageManager.m */,
+				C353C0BB2EBF3DF2009DF25C /* LocalizedMacro.h */,
+				C353C0BC2EBF3DF2009DF25C /* NSString+Localized.h */,
+				C353C0BD2EBF3DF2009DF25C /* NSString+Localized.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		C353C0CA2EBF3DF2009DF25C /* QuickNextBox */ = {
+			isa = PBXGroup;
+			children = (
+				C3A426432EBF4485006E1200 /* 草稿纸 */,
+				C353C0B12EBF3DF2009DF25C /* Pages */,
+				C353C0BF2EBF3DF2009DF25C /* AppDelegate.h */,
+				C353C0C02EBF3DF2009DF25C /* AppDelegate.m */,
+				C353C0C12EBF3DF2009DF25C /* Assets.xcassets */,
+				C353C0C22EBF3DF2009DF25C /* Info.plist */,
+				C353C0C42EBF3DF2009DF25C /* LaunchScreen.storyboard */,
+				C353C0C72EBF3DF2009DF25C /* LaunchScreen.strings */,
+				C353C0C82EBF3DF2009DF25C /* main.m */,
+				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
+			);
+			path = QuickNextBox;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,9 +224,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				C353BD8C2EBCFD53009DF25C /* QuickNextBox */,
 			);
 			name = QuickNextBox;
 			productName = QuickNextBox;
@@ -138,6 +271,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */,
+				C353C0CD2EBF3DF2009DF25C /* LaunchScreen.storyboard in Resources */,
+				C353C0CE2EBF3DF2009DF25C /* LaunchScreen.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,10 +330,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C353C0CF2EBF3DF2009DF25C /* MBHudDemoVC.m in Sources */,
+				C353C0D02EBF3DF2009DF25C /* AccelerometerVC.m in Sources */,
+				C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */,
+				C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */,
+				C353C0D32EBF3DF2009DF25C /* MainTabBarController.m in Sources */,
+				C3A426442EBF4485006E1200 /* 草稿纸 in Sources */,
+				C353C0D42EBF3DF2009DF25C /* ProfileVC.m in Sources */,
+				C353C0D52EBF3DF2009DF25C /* TabBarItemConfig.m in Sources */,
+				C353C0D62EBF3DF2009DF25C /* MBProgressHUD.m in Sources */,
+				C353C0D72EBF3DF2009DF25C /* TSUserDefaults.m in Sources */,
+				C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */,
+				C353C0D82EBF3DF2009DF25C /* LanguageManager.m in Sources */,
+				C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */,
+				C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */,
+				C353C0DB2EBF3DF2009DF25C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C353C0C42EBF3DF2009DF25C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C353C0C32EBF3DF2009DF25C /* Base 2 */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C353C0C72EBF3DF2009DF25C /* LaunchScreen.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C353C0C52EBF3DF2009DF25C /* en */,
+				C353C0C62EBF3DF2009DF25C /* zh-Hans */,
+			);
+			name = LaunchScreen.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C353BDA32EBCFD54009DF25C /* Debug */ = {
@@ -213,6 +384,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QuickNextBox/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickNextBox/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuickNextBox;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -245,6 +417,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/QuickNextBox/PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/QuickNextBox/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = QuickNextBox;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -302,7 +475,7 @@
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -364,7 +537,7 @@
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -1,0 +1,12 @@
+
+self.zlabel = [[UILabel alloc] init];
+self.zlabel.text = @"self.zlabel 0";
+self.zlabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
+self.zlabel.textAlignment = NSTextAlignmentCenter;
+self.zlabel.textColor = [UIColor labelColor];
+
+[self.view addSubview:self.zlabel];
+[self.zlabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    make.centerX.mas_equalTo(0);
+    make.top.equalTo(self.view.mas_bottom).multipliedBy(0.2);
+    }];

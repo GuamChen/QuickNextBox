@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TestVC : UIViewController
+@interface AccelerometerVC : UIViewController
 
 
 @end

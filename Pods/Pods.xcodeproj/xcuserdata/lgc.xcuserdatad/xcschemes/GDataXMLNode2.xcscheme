@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1C8D67D8B72D6BA42CCEDB648537A340"
-               BuildableName = "SVProgressHUD"
-               BlueprintName = "SVProgressHUD"
+               BlueprintIdentifier = "94ABFFBFF8E727E850665F65245FDDC4"
+               BuildableName = "GDataXMLNode2.framework"
+               BlueprintName = "GDataXMLNode2"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

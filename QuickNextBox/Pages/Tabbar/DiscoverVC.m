@@ -8,6 +8,8 @@
 
 // DiscoverVC.m
 #import "DiscoverVC.h"
+#import "MBHudDemoVC.h"
+#import "AccelerometerVC.h"
 #import <CommonCrypto/CommonCrypto.h>
 
 @interface DiscoverVC ()
@@ -28,24 +30,72 @@
 
 - (void)setupUI {
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = @"发现内容";
+    titleLabel.text = @"案例内容";
     titleLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor labelColor];
     
     [self.view addSubview:titleLabel];
+    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.top.equalTo(self.view.mas_bottom).multipliedBy(0.15);
+    }];
     
-    // 使用自动布局
-    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[
-        [titleLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
-        [titleLabel.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
-        [titleLabel.leadingAnchor constraintGreaterThanOrEqualToAnchor:self.view.leadingAnchor constant:20],
-        [titleLabel.trailingAnchor constraintLessThanOrEqualToAnchor:self.view.trailingAnchor constant:-20]
-    ]];
+    UIButton * mbhub_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [mbhub_btn setTitle: @"MBHudDemo" forState:UIControlStateNormal];
+    [self.view addSubview: mbhub_btn];
+    [mbhub_btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.top.equalTo(self.view.mas_bottom).multipliedBy(0.25);
+        make.size.mas_equalTo(CGSizeMake(200, 50));
+    }];
     
-    [TSUserDefaults getHasLogined];
+    [mbhub_btn addTarget:self action:@selector(GotoMBHudDemoPage) forControlEvents:UIControlEventTouchUpInside];
+    
+
+     
+   
+    UIButton * acc_btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [acc_btn setTitle: @"GotoAccelerometerVC" forState:UIControlStateNormal];
+    [self.view addSubview: acc_btn];
+    [acc_btn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.top.equalTo(self.view.mas_bottom).multipliedBy(0.35);
+        make.size.mas_equalTo(CGSizeMake(200, 50));
+    }];
+    
+    [acc_btn addTarget:self action:@selector(GotoAccelerometerVC) forControlEvents:UIControlEventTouchUpInside];
+    
 }
+
+
+- (void)GotoAccelerometerVC {
+    AccelerometerVC *vc =  [AccelerometerVC new];
+    
+    if (self.navigationController) {
+        NSLog(@"NavigationController exists: %@", self.navigationController);
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        NSLog(@"NavigationController is nil!");
+        // 尝试 present 方式
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+- (void)GotoMBHudDemoPage {
+    MBHudDemoVC *vc =  [MBHudDemoVC new];
+    
+    if (self.navigationController) {
+        NSLog(@"NavigationController exists: %@", self.navigationController);
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        NSLog(@"NavigationController is nil!");
+        // 尝试 present 方式
+        [self presentViewController:vc animated:YES completion:nil];
+    }
+}
+
+#pragma mark -------- MD5 Tool code
 - (NSString *)md5HashOfPath:(NSString *)path
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
