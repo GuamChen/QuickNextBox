@@ -9,6 +9,11 @@
 // NSString+Localized.h
 #import <Foundation/Foundation.h>
 
+
+// 快捷宏
+#define Localized(key) [key localized]
+#define LocalizedWithComment(key, comment) [key localizedWithComment:comment]
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Localized)

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor systemBackgroundColor];
+    self.view.backgroundColor = RGB(229, 232, 232);
     self.title = @"首页";
     
     [self setupUI];
@@ -26,7 +26,7 @@
 
 - (void)setupUI {
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = @"首页内容";
+    titleLabel.text = @"首页内容".localized;
     titleLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor labelColor];
@@ -55,8 +55,8 @@
 
 - (void)setupUI2 {
     // 方法1：使用宏
-    self.title = L_Welcome;
-    self.navigationItem.title = Localized(@"home_title"); 
+    self.title = @"welcome".localized;;
+    self.navigationItem.title = Localized(@"home_title");
     
     // 方法2：直接使用扩展
     UILabel *label = [[UILabel alloc] init];
@@ -79,7 +79,7 @@
 }
 
 - (void)updateTexts {
-    self.title = L_Welcome;
+    self.title = @"welcome".localized;;
     // 更新所有UI元素的文本
 }
 @end

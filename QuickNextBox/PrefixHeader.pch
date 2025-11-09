@@ -22,8 +22,8 @@
 
 #import "NSString+Localized.h"
 #import "LanguageManager.h"
-#import "LocalizedMacro.h"
 #import "TSUserDefaults.h"
+#import "GCAlertManager.h"
 
 // ============ 三方框架导入 ============
 #import <Masonry/Masonry.h>

@@ -30,7 +30,7 @@
 @end
 
 
-@interface MBHudDemoVC () <NSURLSessionDelegate>
+@interface MBHudDemoVC () <NSURLSessionDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UILabel * titleLb;
 @property (nonatomic, strong) UITableView * tableView;

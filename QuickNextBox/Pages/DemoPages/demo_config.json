@@ -1,0 +1,39 @@
+{
+  "demos": [
+    {
+      "className": "AccelerometerVC",
+      "title": "加速度计演示",
+      "description": "学习使用 Core Motion 框架检测设备加速度",
+      "category": "传感器",
+      "icon": "gyroscope"
+    },
+    {
+      "className": "MBHudDemoVC",
+      "title": "MBProgressHUD 演示",
+      "description": "展示各种 HUD 提示效果和用法",
+      "category": "UI组件",
+      "icon": "info.circle"
+    },
+    {
+      "className": "ToolbarDemoVC",
+      "title": "工具栏演示",
+      "description": "自定义工具栏和按钮布局",
+      "category": "UI组件",
+      "icon": "toolbar"
+    },
+    {
+      "className": "NetworkDemoVC",
+      "title": "网络请求演示",
+      "description": "学习使用 NSURLSession 进行网络通信",
+      "category": "网络",
+      "icon": "network"
+    },
+    {
+      "className": "AnimationDemoVC",
+      "title": "动画效果演示",
+      "description": "Core Animation 和各种视图动画",
+      "category": "动画",
+      "icon": "play.rectangle"
+    }
+  ]
+}

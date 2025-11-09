@@ -21,7 +21,7 @@
     self.view.backgroundColor = RGB(229, 232, 232);
     
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = @"案例内容： 进入MotionManager，学习了检测加速度计、设备运动、磁力计、陀螺仪，并且完成了一个小案例:摇一摇检测";
+    titleLabel.text = @"案例内容： 进入MotionManager，学习了检测加速度计、设备运动、磁力计、陀螺仪，并且完成了一个小案例: 摇一摇检测";
     titleLabel.numberOfLines = 0;
     titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
     titleLabel.textAlignment = NSTextAlignmentLeft;

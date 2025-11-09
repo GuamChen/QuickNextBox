@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor systemBackgroundColor];
+    self.view.backgroundColor = RGB(229, 232, 232);
     self.title = @"个人信息";
     
     [self setupUI];
