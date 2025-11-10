@@ -7,7 +7,6 @@ target 'QuickNextBox' do
 
   # Pods for QuickNextBox
   pod 'AFNetworking', '~> 4.0'
-  pod 'SVProgressHUD'
   pod 'Masonry'
   pod 'GDataXMLNode2'
   

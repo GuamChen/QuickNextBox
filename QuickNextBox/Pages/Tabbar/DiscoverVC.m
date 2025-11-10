@@ -24,7 +24,15 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = RGB(229, 232, 232);
-    self.title = Localized(@"学习案例");
+    self.navigationItem.title = Localized(@"学习案例");
+    
+    /**
+     self.title = Localized(@"学习案例");
+     这会同时影响：
+     
+     导航栏的标题（navigationItem.title）
+     TabBar 项的标题（tabBarItem.title）
+     */
     
     [self loadDemoConfig];
     [self setupUI];
@@ -116,7 +124,7 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(40);
+        make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(50);
         make.left.right.bottom.equalTo(self.view);
     }];
 }
@@ -187,7 +195,7 @@
     // 动态创建实例
     UIViewController *targetVC = [[targetClass alloc] init];
     if (!targetVC) {
-        [GCAlertManager showAlertInView:self WithTitle:@"创建失败"
+        [GCAlertManager showAlertInView:self WithTitle:@"创建失败".localized
                                 message:[NSString stringWithFormat:@"无法创建 %@ 的实例", demoItem.className]];
         return;
     }
@@ -257,7 +265,7 @@
     [super layoutSubviews];
     
     // 调整图片大小
-    CGSize imageSize = CGSizeMake(32, 32);
+    CGSize imageSize = CGSizeMake(30, 30);
     self.imageView.frame = CGRectMake(16, (self.contentView.frame.size.height - imageSize.height) / 2, imageSize.width, imageSize.height);
 }
 

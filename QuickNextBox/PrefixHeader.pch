@@ -27,15 +27,13 @@
 
 // ============ 三方框架导入 ============
 #import <Masonry/Masonry.h>
+#import "MBProgressHUD.h"
 
 
 
 // ============ 系统版本和设备检测 ============
 // 系统版本
 #define SYSTEM_VERSION        [[[UIDevice currentDevice] systemVersion] floatValue]
-#define IS_IOS_11_OR_LATER    (SYSTEM_VERSION >= 11.0)
-#define IS_IOS_13_OR_LATER    (SYSTEM_VERSION >= 13.0)
-#define IS_IOS_15_OR_LATER    (SYSTEM_VERSION >= 15.0)
 
 // 设备类型
 #define IS_IPAD               (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
@@ -53,11 +51,84 @@
     isPhoneX; \
 })
 
-// ============ 屏幕尺寸 ============
+
+
+#pragma mark -------Window Macros
+
 #define SCREEN_WIDTH          [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT         [UIScreen mainScreen].bounds.size.height
 #define SCREEN_MAX_LENGTH     (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
 #define SCREEN_MIN_LENGTH     (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+// 主窗口
+#define kWindow [UIApplication sharedApplication].delegate.window
+#define kKeyWindow [UIApplication sharedApplication].keyWindow
+#define kMainWindow ({\
+UIWindow *window = [UIApplication sharedApplication].keyWindow;\
+if (!window) window = [[UIApplication sharedApplication].windows firstObject];\
+window;\
+})
+
+
+// 安全获取主窗口（兼容所有版本）
+#define kSafeWindow ({\
+UIWindow *result = nil;\
+if (@available(iOS 13.0, *)) {\
+NSArray<UIWindow *> *windows = [UIApplication sharedApplication].windows;\
+for (UIWindow *window in windows) {\
+if (window.isKeyWindow) {\
+result = window;\
+break;\
+}\
+}\
+if (!result) {\
+result = [windows firstObject];\
+}\
+} else {\
+result = [UIApplication sharedApplication].keyWindow;\
+}\
+result;\
+})
+
+// 获取最顶层的窗口
+#define kTopWindow ([[UIApplication sharedApplication].windows lastObject])
+
+// 获取窗口的bounds
+#define kWindowBounds [UIScreen mainScreen].bounds
+#define kWindowSize [UIScreen mainScreen].bounds.size
+#define kWindowWidth CGRectGetWidth([UIScreen mainScreen].bounds)
+#define kWindowHeight CGRectGetHeight([UIScreen mainScreen].bounds)
+
+// 安全区域相关
+#define kSafeAreaInsets ({\
+UIEdgeInsets insets = UIEdgeInsetsZero;\
+if (@available(iOS 11.0, *)) {\
+insets = kMainWindow.safeAreaInsets;\
+}\
+insets;\
+})
+
+#define kSafeAreaTop (kSafeAreaInsets.top)
+#define kSafeAreaBottom (kSafeAreaInsets.bottom)
+#define kSafeAreaLeft (kSafeAreaInsets.left)
+#define kSafeAreaRight (kSafeAreaInsets.right)
+
+// 状态栏高度
+#define kStatusBarHeight ({\
+CGFloat height = 0;\
+if (@available(iOS 11.0, *)) {\
+height = kSafeAreaInsets.top;\
+} else {\
+height = 20;\
+}\
+height;\
+})
+
+// 导航栏高度（包含状态栏）
+#define kNavigationBarHeight (44 + kStatusBarHeight)
+
+// TabBar高度
+#define kTabBarHeight (49 + kSafeAreaInsets.bottom)
 
 // 安全区域
 #define SAFE_AREA_TOP \
@@ -80,6 +151,7 @@
     bottom; \
 })
 
+
 // ============ 调试工具 ============
 #ifdef DEBUG
     #define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
@@ -98,7 +170,7 @@
 #define GCWeakSelf              __weak __typeof(self) weakSelf = self;
 #define STRONGSELF            __strong __typeof(weakSelf) strongSelf = weakSelf;
 
-// ============ 颜色工具 ============
+#pragma mark ============ 颜色工具 ============
 // RGB颜色
 #define RGB(r, g, b)          [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define RGBA(r, g, b, a)      [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
@@ -168,15 +240,9 @@ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC))
 }
 
 // ============ 本地化字符串 ============
-#define LOCALIZED(str)        NSLocalizedString(str, nil)
+//#define LOCALIZED(str)        NSLocalizedString(str, nil)
 
-// ============ 设备判断 ============
-// 判断设备类型
-#define IS_IPHONE_4_OR_LESS   (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
-#define IS_IPHONE_5           (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
-#define IS_IPHONE_8           (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
-#define IS_IPHONE_8PLUS       (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
-#define IS_IPHONE_X_SERIES    (IS_IPHONE && SCREEN_MAX_LENGTH >= 812.0)
+
 
 // ============ 其他实用宏 ============
 // 角度弧度转换

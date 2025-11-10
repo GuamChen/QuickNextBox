@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)showAlertInView:(UIViewController*) viewController WithTitle:(NSString *)title message:(NSString *)message;
 
+
++ (void)showHUDWithMessage:(NSString *)message;
++ (void)hideHUD;
++ (void)showTemporaryMessage:(NSString *)message;  // 临时显示
 @end
 
 NS_ASSUME_NONNULL_END

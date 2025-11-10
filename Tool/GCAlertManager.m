@@ -24,4 +24,25 @@
     [viewController presentViewController:alert animated:YES completion:nil];
 }
 
+
+#pragma mark + Helper Methods
+
++ (void)showHUDWithMessage:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:kWindow animated:YES];
+    hud.label.text = message;
+    hud.mode = MBProgressHUDModeIndeterminate;
+}
+
++ (void)hideHUD {
+    [MBProgressHUD hideHUDForView:kWindow animated:YES];
+}
+
++ (void)showTemporaryMessage:(NSString *)message {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:kWindow animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = message;
+    hud.offset = CGPointMake(0, 150);
+    [hud hideAnimated:YES afterDelay:1.5];
+}
+
 @end

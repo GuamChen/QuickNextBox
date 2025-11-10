@@ -9,6 +9,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, ToolbarActionType) {
+    ToolbarActionTypeSave,
+    ToolbarActionTypeShare,
+    ToolbarActionTypeEdit,
+    ToolbarActionTypeDelete,
+    ToolbarActionTypeFavorite
+};
+
 @interface ToolbarDemoVC : UIViewController
 
 @end

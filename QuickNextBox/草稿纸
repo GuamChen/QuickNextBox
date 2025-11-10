@@ -1,12 +1,73 @@
+#import <UIKit/UIKit.h>
 
-self.zlabel = [[UILabel alloc] init];
-self.zlabel.text = @"self.zlabel 0";
-self.zlabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
-self.zlabel.textAlignment = NSTextAlignmentCenter;
-self.zlabel.textColor = [UIColor labelColor];
+NS_ASSUME_NONNULL_BEGIN
 
-[self.view addSubview:self.zlabel];
-[self.zlabel mas_makeConstraints:^(MASConstraintMaker *make) {
-    make.centerX.mas_equalTo(0);
-    make.top.equalTo(self.view.mas_bottom).multipliedBy(0.2);
-    }];
+@interface ToolbarDemoVC : UIViewController
+
+@end
+
+NS_ASSUME_NONNULL_END
+
+
+
+
+//
+//  ToolbarDemoVC.m
+//  QuickNextBox
+//
+//  Created by lgc on 2025/11/8.
+//
+
+#import "ToolbarDemoVC.h"
+
+@interface ToolbarDemoVC ()
+
+
+
+
+@end
+
+@implementation ToolbarDemoVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = RGB(229, 232, 232);
+
+    [self addToolbar];
+
+}
+
+
+-(void)addToolbar {
+    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]
+                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                  target:nil action:nil];
+    UIBarButtonItem *customItem1 = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"Tool1" style:UIBarButtonItemStyleBordered
+                                    target:self action:@selector(toolBarItem1:)];
+    UIBarButtonItem *customItem2 = [[UIBarButtonItem alloc]
+                                    initWithTitle:@"Tool2" style:UIBarButtonItemStyleDone
+                                    target:self action:@selector(toolBarItem2:)];
+    
+    NSArray *toolbarItems = [NSArray arrayWithObjects:customItem1,spaceItem, customItem2, nil];
+    UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame: CGRectMake(0, 366+54, 320, 50)];
+    [toolbar setBarStyle:UIBarStyleBlackOpaque];
+    [self.view addSubview:toolbar];
+    [toolbar setItems:toolbarItems];
+}
+
+-(IBAction)toolBarItem1:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    });
+}
+
+-(IBAction)toolBarItem2:(id)sender {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+@end
+
+
+帮我写一个工具栏的优雅案例

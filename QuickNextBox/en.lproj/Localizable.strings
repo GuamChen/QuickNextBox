@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  QuickNextBox
+
+  Created by lgc on 2025/11/9.
+  
+*/
+
+"welcome" = "Welcome";
+"home_title" = "Home";
+"language_system" = "System Language";
+
+
+
+"学习案例" = "learn demo";

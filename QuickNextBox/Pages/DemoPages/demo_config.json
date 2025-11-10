@@ -34,6 +34,27 @@
       "description": "Core Animation 和各种视图动画",
       "category": "动画",
       "icon": "play.rectangle"
+    },
+    {
+        "className": "MapDemoVC",
+        "title": "地图功能演示",
+        "description": "集成 MapKit 显示地图和标注",
+        "category": "地图",
+        "icon": "map"
+    },
+    {
+        "className": "CameraDemoVC",
+        "title": "相机拍照演示",
+        "description": "使用 UIImagePickerController 拍照和相册",
+        "category": "媒体",
+        "icon": "camera"
+    },
+    {
+        "className": "AudioDemoVC",
+        "title": "音频播放演示",
+        "description": "AVFoundation 音频播放和录制",
+        "category": "媒体",
+        "icon": "music.note"
     }
   ]
 }

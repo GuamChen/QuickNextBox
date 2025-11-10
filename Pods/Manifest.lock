@@ -16,28 +16,23 @@ PODS:
     - AFNetworking/NSURLSession
   - GDataXMLNode2 (2.0.1)
   - Masonry (1.1.0)
-  - SVProgressHUD (2.3.1):
-    - SVProgressHUD/Core (= 2.3.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 4.0)
   - GDataXMLNode2
   - Masonry
-  - SVProgressHUD
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - GDataXMLNode2
     - Masonry
-    - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   GDataXMLNode2: 90a3f2cd1f041aa5f43062eec884e0943704bf81
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
 
-PODFILE CHECKSUM: ceeaccf550b6f0e73bb8ba9e03239dda5383e780
+PODFILE CHECKSUM: 16b0ba26ae8f23c823c0abbd113b623e41beb74b
 
 COCOAPODS: 1.16.2

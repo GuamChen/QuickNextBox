@@ -15,7 +15,7 @@
 		C30EB8702EC098710028805C /* AccelerometerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EB8652EC098710028805C /* AccelerometerVC.m */; };
 		C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EB8682EC098710028805C /* MBHudDemoVC.m */; };
 		C30EB8752EC0988B0028805C /* DemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EB8742EC0988B0028805C /* DemoItem.m */; };
-		C30EB8762EC0B21D0028805C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C353C0C72EBF3DF2009DF25C /* LaunchScreen.storyboard */; };
+		C30EB87D2EC0BC0B0028805C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C30EB87B2EC0BC0B0028805C /* Localizable.strings */; };
 		C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C353C0C12EBF3DF2009DF25C /* Assets.xcassets */; };
 		C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */; };
 		C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A92EBF3DF2009DF25C /* HomeVC.m */; };
@@ -49,6 +49,8 @@
 		C30EB86A2EC098710028805C /* ToolbarDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToolbarDemoVC.m; sourceTree = "<group>"; };
 		C30EB8732EC098870028805C /* DemoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoItem.h; sourceTree = "<group>"; };
 		C30EB8742EC0988B0028805C /* DemoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoItem.m; sourceTree = "<group>"; };
+		C30EB87C2EC0BC0B0028805C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C30EB87E2EC0BC5B0028805C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C353BD8A2EBCFD53009DF25C /* QuickNextBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickNextBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C353C0A62EBF3DF2009DF25C /* DiscoverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
 		C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
@@ -73,8 +75,6 @@
 		C353C0C02EBF3DF2009DF25C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C353C0C12EBF3DF2009DF25C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C353C0C22EBF3DF2009DF25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C353C0C52EBF3DF2009DF25C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		C353C0C62EBF3DF2009DF25C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		C353C0C82EBF3DF2009DF25C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 				C353C0C02EBF3DF2009DF25C /* AppDelegate.m */,
 				C353C0C12EBF3DF2009DF25C /* Assets.xcassets */,
 				C353C0C22EBF3DF2009DF25C /* Info.plist */,
-				C353C0C72EBF3DF2009DF25C /* LaunchScreen.storyboard */,
 				C353C0C82EBF3DF2009DF25C /* main.m */,
+				C30EB87B2EC0BC0B0028805C /* Localizable.strings */,
 				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
 			);
 			path = QuickNextBox;
@@ -277,8 +277,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				"Base 2",
+				Base,
 				"zh-Hans",
 			);
 			mainGroup = C353BD812EBCFD53009DF25C;
@@ -299,8 +299,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */,
+				C30EB87D2EC0BC0B0028805C /* Localizable.strings in Resources */,
 				C30EB86E2EC098710028805C /* demo_config.json in Resources */,
-				C30EB8762EC0B21D0028805C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,13 +337,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -382,13 +378,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C353C0C72EBF3DF2009DF25C /* LaunchScreen.storyboard */ = {
+		C30EB87B2EC0BC0B0028805C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				C353C0C52EBF3DF2009DF25C /* en */,
-				C353C0C62EBF3DF2009DF25C /* zh-Hans */,
+				C30EB87C2EC0BC0B0028805C /* en */,
+				C30EB87E2EC0BC5B0028805C /* zh-Hans */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -465,6 +461,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -527,6 +524,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -30,7 +30,7 @@
 - (void)setupViewControllers {
     // 1. 首页
     HomeVC *homeVC = [[HomeVC alloc] init];
-    homeVC.title = @"首页";
+    homeVC.tabBarItem.title = @"首页";
     UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
     homeNav.tabBarItem = [self createTabBarItemWithTitle:@"首页"
                                              normalImage:@"house"
@@ -38,7 +38,7 @@
     
     // 2. 发现
     DiscoverVC *discoverVC = [[DiscoverVC alloc] init];
-    discoverVC.title = @"发现";
+    discoverVC.tabBarItem.title = @"发现";
     UINavigationController *discoverNav = [[UINavigationController alloc] initWithRootViewController:discoverVC];
     discoverNav.tabBarItem = [self createTabBarItemWithTitle:@"发现"
                                                  normalImage:@"magnifyingglass"
@@ -46,7 +46,7 @@
     
     // 3. 我的
     ProfileVC *profileVC = [[ProfileVC alloc] init];
-    profileVC.title = @"我的";
+    profileVC.tabBarItem.title = @"我的";
     UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:profileVC];
     profileNav.tabBarItem = [self createTabBarItemWithTitle:@"我的"
                                                 normalImage:@"person"
@@ -54,7 +54,7 @@
     
     // 设置 viewControllers
     self.viewControllers = @[homeNav, discoverNav, profileNav];
-    self.selectedIndex = 0; // 默认选中首页
+    self.selectedIndex = 1; // 默认选中首页
 }
 
 - (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title

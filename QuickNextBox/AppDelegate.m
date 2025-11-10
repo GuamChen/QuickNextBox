@@ -33,6 +33,10 @@
     // 可选：设置全局导航栏样式
     [self setupGlobalAppearance];
     
+    
+    [[LanguageManager sharedManager] currentLanguage];
+
+    
     return YES;
 }
 

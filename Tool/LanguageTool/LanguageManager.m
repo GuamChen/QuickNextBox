@@ -11,6 +11,10 @@
 
 NSString *const kLanguageDidChangeNotification = @"kLanguageDidChangeNotification";
 
+@interface LanguageManager()
+@property (nonatomic, strong) NSBundle *currentBundle;
+@end
+
 @implementation LanguageManager
 
 + (instancetype)sharedManager {
@@ -37,11 +41,13 @@ NSString *const kLanguageDidChangeNotification = @"kLanguageDidChangeNotificatio
         return;
     }
     
-    NSString *languageCode = [self languageCodeForType:language];
+    // 保存语言设置
+    NSString *languageCode = [self preferredLanguageCodeForType:language];
     [[NSUserDefaults standardUserDefaults] setObject:languageCode forKey:@"AppSelectedLanguage"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     _currentLanguage = language;
+    [self updateCurrentBundle];
     
     // 发送通知
     [[NSNotificationCenter defaultCenter] postNotificationName:kLanguageDidChangeNotification object:nil];
@@ -61,14 +67,13 @@ NSString *const kLanguageDidChangeNotification = @"kLanguageDidChangeNotificatio
 }
 
 - (NSString *)localizedStringForKey:(NSString *)key comment:(NSString *)comment {
-    // 获取当前使用的语言bundle
-    NSBundle *bundle = [self currentLanguageBundle];
-    if (!bundle) {
-        bundle = [NSBundle mainBundle];
+    if (self.currentBundle) {
+        NSString *result = [self.currentBundle localizedStringForKey:key value:key table:nil];
+        return result;
     }
     
-    NSString *result = [bundle localizedStringForKey:key value:@"" table:nil];
-    return result ?: key;
+    // 回退到主bundle
+    return [[NSBundle mainBundle] localizedStringForKey:key value:key table:nil];
 }
 
 #pragma mark - Private Methods
@@ -81,25 +86,30 @@ NSString *const kLanguageDidChangeNotification = @"kLanguageDidChangeNotificatio
     } else {
         _currentLanguage = AppLanguageSystem;
     }
+    
+    [self updateCurrentBundle];
 }
 
-- (NSBundle *)currentLanguageBundle {
-    NSString *languageCode = [self languageCodeForType:self.currentLanguage];
+- (void)updateCurrentBundle {
+    NSString *languageCode = [self preferredLanguageCodeForType:self.currentLanguage];
     
-    if (self.currentLanguage == AppLanguageSystem) {
-        // 使用系统语言
-        NSArray *preferredLanguages = [NSLocale preferredLanguages];
-        if (preferredLanguages.count > 0) {
-            languageCode = preferredLanguages.firstObject;
+    // 获取可用的本地化资源
+    NSString *path = [[NSBundle mainBundle] pathForResource:languageCode ofType:@"lproj"];
+    if (path) {
+        self.currentBundle = [NSBundle bundleWithPath:path];
+    } else {
+        // 如果找不到精确匹配，尝试基础语言代码
+        NSString *baseLanguage = [self baseLanguageCode:languageCode];
+        if (baseLanguage) {
+            path = [[NSBundle mainBundle] pathForResource:baseLanguage ofType:@"lproj"];
+            self.currentBundle = path ? [NSBundle bundleWithPath:path] : [NSBundle mainBundle];
+        } else {
+            self.currentBundle = [NSBundle mainBundle];
         }
     }
-    
-    // 获取语言包路径
-    NSString *path = [[NSBundle mainBundle] pathForResource:languageCode ofType:@"lproj"];
-    return path ? [NSBundle bundleWithPath:path] : [NSBundle mainBundle];
 }
 
-- (NSString *)languageCodeForType:(AppLanguage)type {
+- (NSString *)preferredLanguageCodeForType:(AppLanguage)type {
     switch (type) {
         case AppLanguageEnglish:
             return @"en";
@@ -107,18 +117,30 @@ NSString *const kLanguageDidChangeNotification = @"kLanguageDidChangeNotificatio
             return @"zh-Hans";
         case AppLanguageSystem:
         default:
-            return [[NSLocale preferredLanguages] firstObject] ?: @"en";
+            return [NSLocale preferredLanguages].firstObject ?: @"en";
     }
 }
 
 - (AppLanguage)languageTypeForCode:(NSString *)code {
-    if ([code hasPrefix:@"zh"]) {
+    // 处理完整的语言标识
+    if ([code hasPrefix:@"zh-Hans"] || [code hasPrefix:@"zh-Hant"] || [code isEqualToString:@"zh"]) {
         return AppLanguageChinese;
     } else if ([code hasPrefix:@"en"]) {
         return AppLanguageEnglish;
     } else {
         return AppLanguageSystem;
     }
+}
+
+- (NSString *)baseLanguageCode:(NSString *)fullLanguageCode {
+    // 从 "zh-Hans-CN" 中提取 "zh-Hans"
+    NSArray *components = [fullLanguageCode componentsSeparatedByString:@"-"];
+    if (components.count >= 2) {
+        return [NSString stringWithFormat:@"%@-%@", components[0], components[1]];
+    } else if (components.count == 1) {
+        return components[0];
+    }
+    return nil;
 }
 
 - (NSArray<NSString *> *)availableLanguages {
