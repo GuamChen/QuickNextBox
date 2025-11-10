@@ -46,5 +46,13 @@
             <string>zh-Hans</string>
         </array>
         
+<!--  权限申请 -->
+        <key>NSCameraUsageDescription</key>
+        <string>应用需要访问相机以拍摄照片。</string>
+        <key>NSPhotoLibraryUsageDescription</key>
+        <string>应用需要访问相册以保存或选择图片。</string>
+        <key>NSDocumentsFolderUsageDescription</key>
+        <string>应用需要访问文件以选择图片内容。</string>
+
     </dict>
 </plist>

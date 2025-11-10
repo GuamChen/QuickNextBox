@@ -30,6 +30,7 @@
 		C353C0DB2EBF3DF2009DF25C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C82EBF3DF2009DF25C /* main.m */; };
 		C3A426442EBF4485006E1200 /* 草稿纸 in Sources */ = {isa = PBXBuildFile; fileRef = C3A426432EBF4485006E1200 /* 草稿纸 */; };
 		C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A426462EBF5F0D006E1200 /* MotionManager.m */; };
+		C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC824F2EC220E50098F454 /* TakePhoteController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,8 @@
 		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
 		C3A426452EBF5F02006E1200 /* MotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionManager.h; sourceTree = "<group>"; };
 		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
+		C3EC824E2EC220C80098F454 /* TakePhoteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhoteController.h; sourceTree = "<group>"; };
+		C3EC824F2EC220E50098F454 /* TakePhoteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePhoteController.m; sourceTree = "<group>"; };
 		D92DCE89C5368011024D4CAE /* Pods-QuickNextBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNextBox.release.xcconfig"; path = "Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +135,8 @@
 				C30EB8682EC098710028805C /* MBHudDemoVC.m */,
 				C30EB8692EC098710028805C /* ToolbarDemoVC.h */,
 				C30EB86A2EC098710028805C /* ToolbarDemoVC.m */,
+				C3EC824E2EC220C80098F454 /* TakePhoteController.h */,
+				C3EC824F2EC220E50098F454 /* TakePhoteController.m */,
 				C30EB8662EC098710028805C /* demo_config.json */,
 				C30EB8732EC098870028805C /* DemoItem.h */,
 				C30EB8742EC0988B0028805C /* DemoItem.m */,
@@ -337,9 +342,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -367,6 +376,7 @@
 				C353C0D62EBF3DF2009DF25C /* MBProgressHUD.m in Sources */,
 				C353C0D72EBF3DF2009DF25C /* TSUserDefaults.m in Sources */,
 				C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */,
+				C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */,
 				C30EB8532EC0937B0028805C /* GCAlertManager.m in Sources */,
 				C353C0D82EBF3DF2009DF25C /* LanguageManager.m in Sources */,
 				C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */,

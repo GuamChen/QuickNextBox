@@ -43,7 +43,7 @@
         "icon": "map"
     },
     {
-        "className": "CameraDemoVC",
+        "className": "TakePhoteController",
         "title": "相机拍照演示",
         "description": "使用 UIImagePickerController 拍照和相册",
         "category": "媒体",
