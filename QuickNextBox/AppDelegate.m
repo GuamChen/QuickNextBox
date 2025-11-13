@@ -61,4 +61,36 @@
     }
 }
 
+
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+    // url 是文件路径，例如 file:///private/var/mobile/Containers/Data/...
+    if (url && [url isFileURL]) {
+        NSString *fileName = url.lastPathComponent;
+        
+        // 沙盒路径（Documents 或专用目录）
+        NSString *destPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
+                              stringByAppendingPathComponent:fileName];
+        
+        NSError *error = nil;
+        [[NSFileManager defaultManager] copyItemAtURL:url
+                                                toURL:[NSURL fileURLWithPath:destPath]
+                                                error:&error];
+        
+        if (error) {
+            [GCAlertManager showTemporaryMessage:[NSString stringWithFormat:@"保存文件失败: %@", error]];
+        } else {
+            [GCAlertManager showTemporaryMessage:[NSString stringWithFormat:@"FIT 文件已保存到: %@", destPath]];
+            // 可以在这里发通知，让主界面刷新数据
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"FITFileImported"
+                                                                object:destPath];
+        }
+    }
+    return YES;
+}
+
+
 @end

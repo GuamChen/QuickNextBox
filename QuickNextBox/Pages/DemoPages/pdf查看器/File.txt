@@ -1,0 +1,26 @@
+// 在你的视图控制器中使用
+- (void)generateAndShowPDF {
+    // 生成PDF
+    NSString *pdfTitle = @"AI分析报告";
+    NSString *pdfContent = @"这里是PDF的内容...";
+    UIImage *analysisImage = [UIImage imageNamed:@"analysis_result"];
+    UIImage *logoImage = [UIImage imageNamed:@"app_logo"];
+    
+    NSString *pdfFilePath = [[LR126RCX_PDFManager sharedManager] generatePDFWithTitle:pdfTitle 
+                                                                             content:pdfContent 
+                                                                               image:analysisImage 
+                                                                            logoImage:logoImage];
+    
+    if (pdfFilePath) {
+        // 创建PDF查看界面
+        LR126RCX_PDFViewController *pdfVC = [[LR126RCX_PDFViewController alloc] init];
+        pdfVC.pdfFilePath = pdfFilePath;
+        pdfVC.pdfTitle = pdfTitle;
+        pdfVC.shouldDeleteOnBack = YES; // 返回时自动删除
+        
+        [self.navigationController pushViewController:pdfVC animated:YES];
+    } else {
+        // 处理生成失败的情况
+        [self showErrorAlert:@"PDF生成失败"];
+    }
+}

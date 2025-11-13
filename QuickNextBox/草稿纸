@@ -1,73 +1,284 @@
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    // 创建窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    // 设置主控制器为 TabBarController
+    MainTabBarController *tabBarController = [[MainTabBarController alloc] init];
+    self.window.rootViewController = tabBarController;
+        
+    // 设置窗口背景色
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    // 显示窗口（只需要调用一次）
+    [self.window makeKeyAndVisible];
+    
+    // 可选：设置全局导航栏样式
+    [self setupGlobalAppearance];
+    
+    
+    [[LanguageManager sharedManager] currentLanguage];
+
+    
+    return YES;
+}
+
+
 #import <UIKit/UIKit.h>
+#import "TabBarItemConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ToolbarDemoVC : UIViewController
+@interface MainTabBarController : UITabBarController
+
+- (void)updateBadgeValue:(NSInteger)badge forType:(TabBarItemType)type;
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 @end
 
 NS_ASSUME_NONNULL_END
 
+// MainTabBarController.m
+#import "MainTabBarController.h"
+#import "TabBarItemConfig.h"
 
+// 子控制器
+#import "HomeVC.h"
+#import "DiscoverVC.h"
+#import "ProfileVC.h"
 
+@interface MainTabBarController ()<UITabBarControllerDelegate>
 
-//
-//  ToolbarDemoVC.m
-//  QuickNextBox
-//
-//  Created by lgc on 2025/11/8.
-//
-
-#import "ToolbarDemoVC.h"
-
-@interface ToolbarDemoVC ()
-
-
-
+@property (nonatomic, strong) NSArray<TabBarItemConfig *> *tabConfigs;
 
 @end
 
-@implementation ToolbarDemoVC
+@implementation MainTabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RGB(229, 232, 232);
-
-    [self addToolbar];
-
-}
-
-
--(void)addToolbar {
-    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc]
-                                  initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                  target:nil action:nil];
-    UIBarButtonItem *customItem1 = [[UIBarButtonItem alloc]
-                                    initWithTitle:@"Tool1" style:UIBarButtonItemStyleBordered
-                                    target:self action:@selector(toolBarItem1:)];
-    UIBarButtonItem *customItem2 = [[UIBarButtonItem alloc]
-                                    initWithTitle:@"Tool2" style:UIBarButtonItemStyleDone
-                                    target:self action:@selector(toolBarItem2:)];
+    [self setupViewControllers];
+    [self customizeTabBarAppearance];
     
-    NSArray *toolbarItems = [NSArray arrayWithObjects:customItem1,spaceItem, customItem2, nil];
-    UIToolbar *toolbar = [[UIToolbar alloc]initWithFrame: CGRectMake(0, 366+54, 320, 50)];
-    [toolbar setBarStyle:UIBarStyleBlackOpaque];
-    [self.view addSubview:toolbar];
-    [toolbar setItems:toolbarItems];
+    self.delegate = self; // 设置代理
+    
 }
 
--(IBAction)toolBarItem1:(id)sender {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+#pragma mark - Setup
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    });
+
+- (void)setupViewControllers {
+    // 1. 首页
+    HomeVC *homeVC = [[HomeVC alloc] init];
+    homeVC.tabBarItem.title = @"首页";
+    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    homeNav.tabBarItem = [self createTabBarItemWithTitle:@"首页"
+                                             normalImage:@"house"
+                                           selectedImage:@"house.fill"];
+    
+    // 2. 发现
+    DiscoverVC *discoverVC = [[DiscoverVC alloc] init];
+    discoverVC.tabBarItem.title = @"发现";
+    UINavigationController *discoverNav = [[UINavigationController alloc] initWithRootViewController:discoverVC];
+    discoverNav.tabBarItem = [self createTabBarItemWithTitle:@"发现"
+                                                 normalImage:@"magnifyingglass"
+                                               selectedImage:@"magnifyingglass"];
+    
+    // 3. 我的
+    ProfileVC *profileVC = [[ProfileVC alloc] init];
+    profileVC.tabBarItem.title = @"我的";
+    UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:profileVC];
+    profileNav.tabBarItem = [self createTabBarItemWithTitle:@"我的"
+                                                normalImage:@"person"
+                                              selectedImage:@"person.fill"];
+    
+    // 设置 viewControllers
+    self.viewControllers = @[homeNav, discoverNav, profileNav];
+    self.selectedIndex = 1; // 默认选中首页
 }
 
--(IBAction)toolBarItem2:(id)sender {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title
+                                normalImage:(NSString *)normalImage
+                              selectedImage:(NSString *)selectedImage {
+    
+    UIImage *normalIcon = [UIImage systemImageNamed:normalImage] ?: [UIImage imageNamed:normalImage];
+    UIImage *selectedIcon = [UIImage systemImageNamed:selectedImage] ?: [UIImage imageNamed:selectedImage];
+    
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title
+                                                             image:normalIcon
+                                                     selectedImage:selectedIcon];
+    
+    // 设置文字颜色
+    [tabBarItem setTitleTextAttributes:@{
+        NSForegroundColorAttributeName: [UIColor grayColor],
+        NSFontAttributeName: [UIFont systemFontOfSize:11]
+    } forState:UIControlStateNormal];
+    
+    [tabBarItem setTitleTextAttributes:@{
+        NSForegroundColorAttributeName: [UIColor systemBlueColor],
+        NSFontAttributeName: [UIFont systemFontOfSize:11]
+    } forState:UIControlStateSelected];
+    
+    return tabBarItem;
 }
+
+
+#pragma mark - Custom Appearance
+
+- (void)customizeTabBarAppearance {
+    if (@available(iOS 13.0, *)) {
+        UITabBarAppearance *appearance = [[UITabBarAppearance alloc] init];
+        
+        // 背景色
+        [appearance configureWithOpaqueBackground];
+        appearance.backgroundColor = [UIColor systemBackgroundColor];
+        
+        // 去掉上边框
+        appearance.shadowColor = [UIColor clearColor];
+        
+        // 设置标准外观
+        self.tabBar.standardAppearance = appearance;
+        
+        if (@available(iOS 15.0, *)) {
+            self.tabBar.scrollEdgeAppearance = appearance;
+        }
+    } else {
+        // iOS 13 以下的适配
+        self.tabBar.barTintColor = [UIColor whiteColor];
+        self.tabBar.shadowImage = [[UIImage alloc] init];
+        self.tabBar.backgroundImage = [[UIImage alloc] init];
+    }
+    
+    // 设置不透明
+    self.tabBar.translucent = NO;
+}
+
+#pragma mark - Public Methods
+
+- (void)updateBadgeValue:(NSInteger)badge forType:(TabBarItemType)type {
+    NSInteger index = [self indexForTabType:type];
+    if (index >= 0 && index < self.tabConfigs.count) {
+        UIViewController *vc = self.viewControllers[index];
+        if (badge > 0) {
+            vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)badge];
+            
+            // 自定义 badge 样式 (iOS 10+)
+            if (@available(iOS 10.0, *)) {
+                vc.tabBarItem.badgeColor = [UIColor systemRedColor];
+                [vc.tabBarItem setBadgeTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}
+                                             forState:UIControlStateNormal];
+            }
+        } else {
+            vc.tabBarItem.badgeValue = nil;
+        }
+    }
+}
+
+- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated {
+    if (animated) {
+        [UIView animateWithDuration:0.3 animations:^{
+            self.tabBar.alpha = hidden ? 0.0 : 1.0;
+        } completion:^(BOOL finished) {
+            self.tabBar.hidden = hidden;
+        }];
+    } else {
+        self.tabBar.hidden = hidden;
+    }
+}
+
+#pragma mark - Helper Methods
+
+- (NSInteger)indexForTabType:(TabBarItemType)type {
+    for (NSInteger i = 0; i < self.tabConfigs.count; i++) {
+        if (self.tabConfigs[i].type == type) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+#pragma mark - UITabBarControllerDelegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    // 可以在这里添加切换前的逻辑，比如权限检查等
+    NSInteger newIndex = [self.viewControllers indexOfObject:viewController];
+    NSLog(@"切换到第 %ld 个 tab", (long)newIndex);
+    
+    return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    // 切换完成后的逻辑
+    NSLog(@"已切换到: %@", viewController.tabBarItem.title);
+    
+    // 可以在这里添加统计、动画效果等
+    [self addBounceAnimationToTabBarItem:tabBarController.tabBar.selectedItem];
+}
+
+- (void)addBounceAnimationToTabBarItem:(UITabBarItem *)item {
+    // 为选中的 tab 添加弹性动画
+    UIView *tabBarButton = [item valueForKey:@"view"];
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    animation.values = @[@1.0, @1.1, @0.9, @1.0];
+    animation.duration = 0.3;
+    animation.calculationMode = kCAAnimationCubic;
+    [tabBarButton.layer addAnimation:animation forKey:@"bounce"];
+}
+
 @end
 
+#pragma mark - 动态导航
 
-帮我写一个工具栏的优雅案例
+/// 动态创建并跳转到案例页面
+- (void)navigateToDemoCase:(DemoItem *)demoItem {
+    NSLog(@"尝试跳转到: %@", demoItem.className);
+    
+    // 使用 NSClassFromString 动态获取类
+    Class targetClass = NSClassFromString(demoItem.className);
+    
+    if (!targetClass) {
+        [GCAlertManager showAlertInView:self WithTitle:@"类未找到"
+                                message:[NSString stringWithFormat:@"%@ 类未在运行时找到\n请确保该类已正确编译到项目中", demoItem.className]];
+        return;
+    }
+    
+    // 验证是否是 UIViewController 子类
+    if (![targetClass isSubclassOfClass:[UIViewController class]]) {
+        [GCAlertManager showAlertInView:self WithTitle:@"无效的视图控制器"
+                                message:[NSString stringWithFormat:@"%@ 不是有效的视图控制器", demoItem.className]];
+        return;
+    }
+    
+    // 动态创建实例
+    UIViewController *targetVC = [[targetClass alloc] init];
+    if (!targetVC) {
+        [GCAlertManager showAlertInView:self WithTitle:@"创建失败".localized
+                                message:[NSString stringWithFormat:@"无法创建 %@ 的实例", demoItem.className]];
+        return;
+    }
+    
+    // 设置标题
+    targetVC.title = demoItem.title;
+    
+    // 导航跳转
+    [self navigateToViewController:targetVC];
+}
+
+/// 执行导航跳转
+- (void)navigateToViewController:(UIViewController *)viewController {
+    if (self.navigationController) {
+        [self.navigationController pushViewController:viewController animated:YES];
+    } else {
+        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:viewController];
+        navVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:navVC animated:YES completion:nil];
+    }
+}
+
+
+
+通过视图分析器，查看到 UIWindowScene - MainTabBarController - UINavigationController - DiscoverVC(点击cell 后是TakephoneVC)
+默认的头部导航栏了（白底、返回按钮文字都是蓝色、标题是黑色），我很满意。
+但是底部的tabbar栏一直显示，体验不好了。
+
+如何设置我的控制器结构呢？ 

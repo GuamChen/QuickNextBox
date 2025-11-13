@@ -31,6 +31,13 @@
 		C3A426442EBF4485006E1200 /* 草稿纸 in Sources */ = {isa = PBXBuildFile; fileRef = C3A426432EBF4485006E1200 /* 草稿纸 */; };
 		C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A426462EBF5F0D006E1200 /* MotionManager.m */; };
 		C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC824F2EC220E50098F454 /* TakePhoteController.m */; };
+		C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82622EC392ED0098F454 /* LRVideoPlayerManager.m */; };
+		C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82652EC393680098F454 /* LRVideoPlayerViewController.m */; };
+		C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82692EC4D99B0098F454 /* PDFManager.m */; };
+		C3EC826D2EC4D9CA0098F454 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC826C2EC4D9CA0098F454 /* PDFViewController.m */; };
+		C3EC826F2EC4DA0D0098F454 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3EC826E2EC4DA0D0098F454 /* File.txt */; };
+		C3EC82722EC4DDFF0098F454 /* QNBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82712EC4DDFF0098F454 /* QNBNavigationController.m */; };
+		C3EC82752EC4E1D30098F454 /* FLYConnectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82742EC4E1D30098F454 /* FLYConnectionHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +90,19 @@
 		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
 		C3EC824E2EC220C80098F454 /* TakePhoteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhoteController.h; sourceTree = "<group>"; };
 		C3EC824F2EC220E50098F454 /* TakePhoteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePhoteController.m; sourceTree = "<group>"; };
+		C3EC82612EC391CB0098F454 /* LRVideoPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRVideoPlayerManager.h; sourceTree = "<group>"; };
+		C3EC82622EC392ED0098F454 /* LRVideoPlayerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRVideoPlayerManager.m; sourceTree = "<group>"; };
+		C3EC82642EC393680098F454 /* LRVideoPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRVideoPlayerViewController.h; sourceTree = "<group>"; };
+		C3EC82652EC393680098F454 /* LRVideoPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRVideoPlayerViewController.m; sourceTree = "<group>"; };
+		C3EC82682EC4D9970098F454 /* PDFManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFManager.h; sourceTree = "<group>"; };
+		C3EC82692EC4D99B0098F454 /* PDFManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFManager.m; sourceTree = "<group>"; };
+		C3EC826B2EC4D9AB0098F454 /* PDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFViewController.h; sourceTree = "<group>"; };
+		C3EC826C2EC4D9CA0098F454 /* PDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
+		C3EC826E2EC4DA0D0098F454 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
+		C3EC82702EC4DDFB0098F454 /* QNBNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNBNavigationController.h; sourceTree = "<group>"; };
+		C3EC82712EC4DDFF0098F454 /* QNBNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNBNavigationController.m; sourceTree = "<group>"; };
+		C3EC82732EC4E1CD0098F454 /* FLYConnectionHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FLYConnectionHelper.h; sourceTree = "<group>"; };
+		C3EC82742EC4E1D30098F454 /* FLYConnectionHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FLYConnectionHelper.m; sourceTree = "<group>"; };
 		D92DCE89C5368011024D4CAE /* Pods-QuickNextBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuickNextBox.release.xcconfig"; path = "Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,7 +158,9 @@
 				C3EC824E2EC220C80098F454 /* TakePhoteController.h */,
 				C3EC824F2EC220E50098F454 /* TakePhoteController.m */,
 				C30EB8662EC098710028805C /* demo_config.json */,
+				C3EC82602EC391C40098F454 /* 视频播放器 */,
 				C30EB8732EC098870028805C /* DemoItem.h */,
+				C3EC82672EC4D9900098F454 /* pdf查看器 */,
 				C30EB8742EC0988B0028805C /* DemoItem.m */,
 			);
 			path = DemoPages;
@@ -175,6 +197,8 @@
 				C353C0AD2EBF3DF2009DF25C /* ProfileVC.m */,
 				C353C0AA2EBF3DF2009DF25C /* MainTabBarController.h */,
 				C353C0AB2EBF3DF2009DF25C /* MainTabBarController.m */,
+				C3EC82702EC4DDFB0098F454 /* QNBNavigationController.h */,
+				C3EC82712EC4DDFF0098F454 /* QNBNavigationController.m */,
 				C353C0AE2EBF3DF2009DF25C /* TabBarItemConfig.h */,
 				C353C0AF2EBF3DF2009DF25C /* TabBarItemConfig.m */,
 			);
@@ -212,6 +236,8 @@
 		C353C0BE2EBF3DF2009DF25C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C3EC82732EC4E1CD0098F454 /* FLYConnectionHelper.h */,
+				C3EC82742EC4E1D30098F454 /* FLYConnectionHelper.m */,
 				C3027E492EBF9B5E0049FEBC /* ToolbarDemoVCViewController.h */,
 				C3027E4A2EBF9B890049FEBC /* MD5Tool.h */,
 				C3027E4B2EBF9B890049FEBC /* MD5Tool.m */,
@@ -239,6 +265,29 @@
 				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
 			);
 			path = QuickNextBox;
+			sourceTree = "<group>";
+		};
+		C3EC82602EC391C40098F454 /* 视频播放器 */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC82612EC391CB0098F454 /* LRVideoPlayerManager.h */,
+				C3EC82622EC392ED0098F454 /* LRVideoPlayerManager.m */,
+				C3EC82642EC393680098F454 /* LRVideoPlayerViewController.h */,
+				C3EC82652EC393680098F454 /* LRVideoPlayerViewController.m */,
+			);
+			path = "视频播放器";
+			sourceTree = "<group>";
+		};
+		C3EC82672EC4D9900098F454 /* pdf查看器 */ = {
+			isa = PBXGroup;
+			children = (
+				C3EC826E2EC4DA0D0098F454 /* File.txt */,
+				C3EC82682EC4D9970098F454 /* PDFManager.h */,
+				C3EC82692EC4D99B0098F454 /* PDFManager.m */,
+				C3EC826B2EC4D9AB0098F454 /* PDFViewController.h */,
+				C3EC826C2EC4D9CA0098F454 /* PDFViewController.m */,
+			);
+			path = "pdf查看器";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +354,7 @@
 			files = (
 				C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */,
 				C30EB87D2EC0BC0B0028805C /* Localizable.strings in Resources */,
+				C3EC826F2EC4DA0D0098F454 /* File.txt in Resources */,
 				C30EB86E2EC098710028805C /* demo_config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,15 +415,21 @@
 				C30EB86F2EC098710028805C /* ToolbarDemoVC.m in Sources */,
 				C30EB8752EC0988B0028805C /* DemoItem.m in Sources */,
 				C30EB8702EC098710028805C /* AccelerometerVC.m in Sources */,
+				C3EC82722EC4DDFF0098F454 /* QNBNavigationController.m in Sources */,
 				C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */,
 				C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */,
+				C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */,
 				C3027E4C2EBF9B890049FEBC /* MD5Tool.m in Sources */,
+				C3EC826D2EC4D9CA0098F454 /* PDFViewController.m in Sources */,
+				C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */,
 				C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */,
+				C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */,
 				C353C0D32EBF3DF2009DF25C /* MainTabBarController.m in Sources */,
 				C3A426442EBF4485006E1200 /* 草稿纸 in Sources */,
 				C353C0D42EBF3DF2009DF25C /* ProfileVC.m in Sources */,
 				C353C0D52EBF3DF2009DF25C /* TabBarItemConfig.m in Sources */,
 				C353C0D62EBF3DF2009DF25C /* MBProgressHUD.m in Sources */,
+				C3EC82752EC4E1D30098F454 /* FLYConnectionHelper.m in Sources */,
 				C353C0D72EBF3DF2009DF25C /* TSUserDefaults.m in Sources */,
 				C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */,
 				C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */,

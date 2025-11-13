@@ -3,6 +3,7 @@
 #import "TabBarItemConfig.h"
 
 // 子控制器
+#import "QNBNavigationController.h"
 #import "HomeVC.h"
 #import "DiscoverVC.h"
 #import "ProfileVC.h"
@@ -21,7 +22,7 @@
     [self customizeTabBarAppearance];
     
     self.delegate = self; // 设置代理
-
+    
 }
 
 #pragma mark - Setup
@@ -31,7 +32,7 @@
     // 1. 首页
     HomeVC *homeVC = [[HomeVC alloc] init];
     homeVC.tabBarItem.title = @"首页";
-    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
+    QNBNavigationController *homeNav = [[QNBNavigationController alloc] initWithRootViewController:homeVC];
     homeNav.tabBarItem = [self createTabBarItemWithTitle:@"首页"
                                              normalImage:@"house"
                                            selectedImage:@"house.fill"];
@@ -39,7 +40,7 @@
     // 2. 发现
     DiscoverVC *discoverVC = [[DiscoverVC alloc] init];
     discoverVC.tabBarItem.title = @"发现";
-    UINavigationController *discoverNav = [[UINavigationController alloc] initWithRootViewController:discoverVC];
+    QNBNavigationController *discoverNav = [[QNBNavigationController alloc] initWithRootViewController:discoverVC];
     discoverNav.tabBarItem = [self createTabBarItemWithTitle:@"发现"
                                                  normalImage:@"magnifyingglass"
                                                selectedImage:@"magnifyingglass"];
@@ -47,7 +48,7 @@
     // 3. 我的
     ProfileVC *profileVC = [[ProfileVC alloc] init];
     profileVC.tabBarItem.title = @"我的";
-    UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:profileVC];
+    QNBNavigationController *profileNav = [[QNBNavigationController alloc] initWithRootViewController:profileVC];
     profileNav.tabBarItem = [self createTabBarItemWithTitle:@"我的"
                                                 normalImage:@"person"
                                               selectedImage:@"person.fill"];

@@ -53,6 +53,27 @@
         <string>应用需要访问相册以保存或选择图片。</string>
         <key>NSDocumentsFolderUsageDescription</key>
         <string>应用需要访问文件以选择图片内容。</string>
+        
+<!--要让 iOS 知道你的 APP 能接收 .fit 文件，需要在 Info.plist 中添加 Document Types（文档类型声明）：-->
+        <key>CFBundleDocumentTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeName</key>
+                <string>FIT File</string>
+                <key>LSItemContentTypes</key>
+                <array>
+                    <string>public.data</string> <!-- 通用数据类型 -->
+                    <string>com.garmin.fit</string> <!-- 你可以自定义 UTType -->
+                </array>
+                <key>CFBundleTypeExtensions</key>
+                <array>
+                    <string>fit</string> <!-- 支持的文件后缀 -->
+                </array>
+                <key>CFBundleTypeRole</key>
+                <string>Viewer</string> <!-- 表示可以查看/打开该类型文件 -->
+            </dict>
+        </array>
 
+        
     </dict>
 </plist>

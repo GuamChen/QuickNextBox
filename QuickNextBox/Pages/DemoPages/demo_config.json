@@ -50,7 +50,7 @@
         "icon": "camera"
     },
     {
-        "className": "AudioDemoVC",
+        "className": "LRVideoPlayerViewController",
         "title": "音频播放演示",
         "description": "AVFoundation 音频播放和录制",
         "category": "媒体",
