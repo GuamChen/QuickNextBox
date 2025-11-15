@@ -30,6 +30,14 @@
 		C353C0DB2EBF3DF2009DF25C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C82EBF3DF2009DF25C /* main.m */; };
 		C3A426442EBF4485006E1200 /* 草稿纸 in Sources */ = {isa = PBXBuildFile; fileRef = C3A426432EBF4485006E1200 /* 草稿纸 */; };
 		C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A426462EBF5F0D006E1200 /* MotionManager.m */; };
+		C3A61B742EC8B61C00F8EA23 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B702EC8B61C00F8EA23 /* LocationHandler.m */; };
+		C3A61B752EC8B61C00F8EA23 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B722EC8B61C00F8EA23 /* LocationViewController.m */; };
+		C3A61B792EC8B64500F8EA23 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B782EC8B64500F8EA23 /* CoreDataManager.m */; };
+		C3A61B7C2EC8B6A400F8EA23 /* PersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B7B2EC8B6A400F8EA23 /* PersonManager.m */; };
+		C3A61B7F2EC8B6C300F8EA23 /* CoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B7E2EC8B6C300F8EA23 /* CoreDataViewController.m */; };
+		C3A61B822EC8B73100F8EA23 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B802EC8B73100F8EA23 /* Model.xcdatamodeld */; };
+		C3A61B8C2EC8BA5E00F8EA23 /* Person+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B892EC8BA5E00F8EA23 /* Person+CoreDataClass.m */; };
+		C3A61B8D2EC8BA5E00F8EA23 /* Person+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B8B2EC8BA5E00F8EA23 /* Person+CoreDataProperties.m */; };
 		C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC824F2EC220E50098F454 /* TakePhoteController.m */; };
 		C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82622EC392ED0098F454 /* LRVideoPlayerManager.m */; };
 		C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82652EC393680098F454 /* LRVideoPlayerViewController.m */; };
@@ -88,6 +96,22 @@
 		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
 		C3A426452EBF5F02006E1200 /* MotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionManager.h; sourceTree = "<group>"; };
 		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
+		C3A61B6F2EC8B61C00F8EA23 /* LocationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationHandler.h; sourceTree = "<group>"; };
+		C3A61B702EC8B61C00F8EA23 /* LocationHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationHandler.m; sourceTree = "<group>"; };
+		C3A61B712EC8B61C00F8EA23 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		C3A61B722EC8B61C00F8EA23 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		C3A61B772EC8B64000F8EA23 /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		C3A61B782EC8B64500F8EA23 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		C3A61B7A2EC8B69B00F8EA23 /* PersonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonManager.h; sourceTree = "<group>"; };
+		C3A61B7B2EC8B6A400F8EA23 /* PersonManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonManager.m; sourceTree = "<group>"; };
+		C3A61B7D2EC8B6C300F8EA23 /* CoreDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataViewController.h; sourceTree = "<group>"; };
+		C3A61B7E2EC8B6C300F8EA23 /* CoreDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataViewController.m; sourceTree = "<group>"; };
+		C3A61B812EC8B73100F8EA23 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C3A61B872EC8B96300F8EA23 /* QuickNextBox-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuickNextBox-Bridging-Header.h"; sourceTree = "<group>"; };
+		C3A61B882EC8BA5E00F8EA23 /* Person+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+CoreDataClass.h"; sourceTree = "<group>"; };
+		C3A61B892EC8BA5E00F8EA23 /* Person+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+CoreDataClass.m"; sourceTree = "<group>"; };
+		C3A61B8A2EC8BA5E00F8EA23 /* Person+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Person+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C3A61B8B2EC8BA5E00F8EA23 /* Person+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Person+CoreDataProperties.m"; sourceTree = "<group>"; };
 		C3EC824E2EC220C80098F454 /* TakePhoteController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TakePhoteController.h; sourceTree = "<group>"; };
 		C3EC824F2EC220E50098F454 /* TakePhoteController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TakePhoteController.m; sourceTree = "<group>"; };
 		C3EC82612EC391CB0098F454 /* LRVideoPlayerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LRVideoPlayerManager.h; sourceTree = "<group>"; };
@@ -149,6 +173,8 @@
 		C30EB86D2EC098710028805C /* DemoPages */ = {
 			isa = PBXGroup;
 			children = (
+				C3A61B762EC8B62000F8EA23 /* CoreData */,
+				C3A61B732EC8B61C00F8EA23 /* 定位 */,
 				C30EB8642EC098710028805C /* AccelerometerVC.h */,
 				C30EB8652EC098710028805C /* AccelerometerVC.m */,
 				C30EB8672EC098710028805C /* MBHudDemoVC.h */,
@@ -159,8 +185,8 @@
 				C3EC824F2EC220E50098F454 /* TakePhoteController.m */,
 				C30EB8662EC098710028805C /* demo_config.json */,
 				C3EC82602EC391C40098F454 /* 视频播放器 */,
-				C30EB8732EC098870028805C /* DemoItem.h */,
 				C3EC82672EC4D9900098F454 /* pdf查看器 */,
+				C30EB8732EC098870028805C /* DemoItem.h */,
 				C30EB8742EC0988B0028805C /* DemoItem.m */,
 			);
 			path = DemoPages;
@@ -208,8 +234,8 @@
 		C353C0B12EBF3DF2009DF25C /* Pages */ = {
 			isa = PBXGroup;
 			children = (
-				C30EB86D2EC098710028805C /* DemoPages */,
 				C353C0B02EBF3DF2009DF25C /* Tabbar */,
+				C30EB86D2EC098710028805C /* DemoPages */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -265,6 +291,36 @@
 				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
 			);
 			path = QuickNextBox;
+			sourceTree = "<group>";
+		};
+		C3A61B732EC8B61C00F8EA23 /* 定位 */ = {
+			isa = PBXGroup;
+			children = (
+				C3A61B6F2EC8B61C00F8EA23 /* LocationHandler.h */,
+				C3A61B702EC8B61C00F8EA23 /* LocationHandler.m */,
+				C3A61B712EC8B61C00F8EA23 /* LocationViewController.h */,
+				C3A61B722EC8B61C00F8EA23 /* LocationViewController.m */,
+			);
+			path = "定位";
+			sourceTree = "<group>";
+		};
+		C3A61B762EC8B62000F8EA23 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C3A61B882EC8BA5E00F8EA23 /* Person+CoreDataClass.h */,
+				C3A61B892EC8BA5E00F8EA23 /* Person+CoreDataClass.m */,
+				C3A61B8A2EC8BA5E00F8EA23 /* Person+CoreDataProperties.h */,
+				C3A61B8B2EC8BA5E00F8EA23 /* Person+CoreDataProperties.m */,
+				C3A61B772EC8B64000F8EA23 /* CoreDataManager.h */,
+				C3A61B782EC8B64500F8EA23 /* CoreDataManager.m */,
+				C3A61B7A2EC8B69B00F8EA23 /* PersonManager.h */,
+				C3A61B7B2EC8B6A400F8EA23 /* PersonManager.m */,
+				C3A61B7D2EC8B6C300F8EA23 /* CoreDataViewController.h */,
+				C3A61B7E2EC8B6C300F8EA23 /* CoreDataViewController.m */,
+				C3A61B802EC8B73100F8EA23 /* Model.xcdatamodeld */,
+				C3A61B872EC8B96300F8EA23 /* QuickNextBox-Bridging-Header.h */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		C3EC82602EC391C40098F454 /* 视频播放器 */ = {
@@ -323,6 +379,7 @@
 				TargetAttributes = {
 					C353BD892EBCFD53009DF25C = {
 						CreatedOnToolsVersion = 16.4;
+						LastSwiftMigration = 1640;
 					};
 				};
 			};
@@ -419,12 +476,19 @@
 				C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */,
 				C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */,
 				C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */,
+				C3A61B792EC8B64500F8EA23 /* CoreDataManager.m in Sources */,
 				C3027E4C2EBF9B890049FEBC /* MD5Tool.m in Sources */,
+				C3A61B7F2EC8B6C300F8EA23 /* CoreDataViewController.m in Sources */,
 				C3EC826D2EC4D9CA0098F454 /* PDFViewController.m in Sources */,
 				C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */,
 				C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */,
 				C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */,
 				C353C0D32EBF3DF2009DF25C /* MainTabBarController.m in Sources */,
+				C3A61B8C2EC8BA5E00F8EA23 /* Person+CoreDataClass.m in Sources */,
+				C3A61B8D2EC8BA5E00F8EA23 /* Person+CoreDataProperties.m in Sources */,
+				C3A61B742EC8B61C00F8EA23 /* LocationHandler.m in Sources */,
+				C3A61B752EC8B61C00F8EA23 /* LocationViewController.m in Sources */,
+				C3A61B7C2EC8B6A400F8EA23 /* PersonManager.m in Sources */,
 				C3A426442EBF4485006E1200 /* 草稿纸 in Sources */,
 				C353C0D42EBF3DF2009DF25C /* ProfileVC.m in Sources */,
 				C353C0D52EBF3DF2009DF25C /* TabBarItemConfig.m in Sources */,
@@ -434,6 +498,7 @@
 				C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */,
 				C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */,
 				C30EB8532EC0937B0028805C /* GCAlertManager.m in Sources */,
+				C3A61B822EC8B73100F8EA23 /* Model.xcdatamodeld in Sources */,
 				C353C0D82EBF3DF2009DF25C /* LanguageManager.m in Sources */,
 				C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */,
 				C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */,
@@ -462,6 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 202511070002;
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
@@ -485,6 +551,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lgc.QuickNextBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuickNextBox/Pages/New Group/QuickNextBox-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -495,6 +564,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 202511070002;
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
@@ -518,6 +588,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.lgc.QuickNextBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "QuickNextBox/Pages/New Group/QuickNextBox-Bridging-Header.h";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -664,6 +736,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C3A61B802EC8B73100F8EA23 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C3A61B812EC8B73100F8EA23 /* Model.xcdatamodel */,
+			);
+			currentVersion = C3A61B812EC8B73100F8EA23 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C353BD822EBCFD53009DF25C /* Project object */;
 }

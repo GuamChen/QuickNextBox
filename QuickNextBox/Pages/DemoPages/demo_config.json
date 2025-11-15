@@ -29,6 +29,13 @@
       "icon": "network"
     },
     {
+      "className": "CoreDataViewController",
+      "title": "Core data演示",
+      "description": "学习使用 Core data 模板管理数据",
+      "category": "数据",
+      "icon": "network"
+    },
+    {
       "className": "AnimationDemoVC",
       "title": "动画效果演示",
       "description": "Core Animation 和各种视图动画",
@@ -38,6 +45,13 @@
     {
         "className": "MapDemoVC",
         "title": "地图功能演示",
+        "description": "集成 MapKit 显示地图和标注",
+        "category": "地图",
+        "icon": "map"
+    },
+    {
+        "className": "LocationViewController",
+        "title": "定位功能演示",
         "description": "集成 MapKit 显示地图和标注",
         "category": "地图",
         "icon": "map"
