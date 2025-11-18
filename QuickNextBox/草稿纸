@@ -1,284 +1,921 @@
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+
+- (void) build_pic_view: (UIView *) view {
+    [view removeAllSubviews];
     
-    // 创建窗口
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    // 设置主控制器为 TabBarController
-    MainTabBarController *tabBarController = [[MainTabBarController alloc] init];
-    self.window.rootViewController = tabBarController;
+    if(!self.pic_itemArray || !self.pic_itemArray.count) {
+        self.pic_itemArray = [NSMutableArray array];
         
-    // 设置窗口背景色
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    // 显示窗口（只需要调用一次）
-    [self.window makeKeyAndVisible];
-    
-    // 可选：设置全局导航栏样式
-    [self setupGlobalAppearance];
-    
-    
-    [[LanguageManager sharedManager] currentLanguage];
-
-    
-    return YES;
-}
-
-
-#import <UIKit/UIKit.h>
-#import "TabBarItemConfig.h"
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface MainTabBarController : UITabBarController
-
-- (void)updateBadgeValue:(NSInteger)badge forType:(TabBarItemType)type;
-- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated;
-
-@end
-
-NS_ASSUME_NONNULL_END
-
-// MainTabBarController.m
-#import "MainTabBarController.h"
-#import "TabBarItemConfig.h"
-
-// 子控制器
-#import "HomeVC.h"
-#import "DiscoverVC.h"
-#import "ProfileVC.h"
-
-@interface MainTabBarController ()<UITabBarControllerDelegate>
-
-@property (nonatomic, strong) NSArray<TabBarItemConfig *> *tabConfigs;
-
-@end
-
-@implementation MainTabBarController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self setupViewControllers];
-    [self customizeTabBarAppearance];
-    
-    self.delegate = self; // 设置代理
-    
-}
-
-#pragma mark - Setup
-
-
-- (void)setupViewControllers {
-    // 1. 首页
-    HomeVC *homeVC = [[HomeVC alloc] init];
-    homeVC.tabBarItem.title = @"首页";
-    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    homeNav.tabBarItem = [self createTabBarItemWithTitle:@"首页"
-                                             normalImage:@"house"
-                                           selectedImage:@"house.fill"];
-    
-    // 2. 发现
-    DiscoverVC *discoverVC = [[DiscoverVC alloc] init];
-    discoverVC.tabBarItem.title = @"发现";
-    UINavigationController *discoverNav = [[UINavigationController alloc] initWithRootViewController:discoverVC];
-    discoverNav.tabBarItem = [self createTabBarItemWithTitle:@"发现"
-                                                 normalImage:@"magnifyingglass"
-                                               selectedImage:@"magnifyingglass"];
-    
-    // 3. 我的
-    ProfileVC *profileVC = [[ProfileVC alloc] init];
-    profileVC.tabBarItem.title = @"我的";
-    UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:profileVC];
-    profileNav.tabBarItem = [self createTabBarItemWithTitle:@"我的"
-                                                normalImage:@"person"
-                                              selectedImage:@"person.fill"];
-    
-    // 设置 viewControllers
-    self.viewControllers = @[homeNav, discoverNav, profileNav];
-    self.selectedIndex = 1; // 默认选中首页
-}
-
-- (UITabBarItem *)createTabBarItemWithTitle:(NSString *)title
-                                normalImage:(NSString *)normalImage
-                              selectedImage:(NSString *)selectedImage {
-    
-    UIImage *normalIcon = [UIImage systemImageNamed:normalImage] ?: [UIImage imageNamed:normalImage];
-    UIImage *selectedIcon = [UIImage systemImageNamed:selectedImage] ?: [UIImage imageNamed:selectedImage];
-    
-    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title
-                                                             image:normalIcon
-                                                     selectedImage:selectedIcon];
-    
-    // 设置文字颜色
-    [tabBarItem setTitleTextAttributes:@{
-        NSForegroundColorAttributeName: [UIColor grayColor],
-        NSFontAttributeName: [UIFont systemFontOfSize:11]
-    } forState:UIControlStateNormal];
-    
-    [tabBarItem setTitleTextAttributes:@{
-        NSForegroundColorAttributeName: [UIColor systemBlueColor],
-        NSFontAttributeName: [UIFont systemFontOfSize:11]
-    } forState:UIControlStateSelected];
-    
-    return tabBarItem;
-}
-
-
-#pragma mark - Custom Appearance
-
-- (void)customizeTabBarAppearance {
-    if (@available(iOS 13.0, *)) {
-        UITabBarAppearance *appearance = [[UITabBarAppearance alloc] init];
-        
-        // 背景色
-        [appearance configureWithOpaqueBackground];
-        appearance.backgroundColor = [UIColor systemBackgroundColor];
-        
-        // 去掉上边框
-        appearance.shadowColor = [UIColor clearColor];
-        
-        // 设置标准外观
-        self.tabBar.standardAppearance = appearance;
-        
-        if (@available(iOS 15.0, *)) {
-            self.tabBar.scrollEdgeAppearance = appearance;
-        }
-    } else {
-        // iOS 13 以下的适配
-        self.tabBar.barTintColor = [UIColor whiteColor];
-        self.tabBar.shadowImage = [[UIImage alloc] init];
-        self.tabBar.backgroundImage = [[UIImage alloc] init];
+        UIImage *  add_icon = [UIImage imageNamed: @"upload_pic_btn"];
+        [self.pic_itemArray addObject:add_icon];
     }
     
-    // 设置不透明
-    self.tabBar.translucent = NO;
-}
-
-#pragma mark - Public Methods
-
-- (void)updateBadgeValue:(NSInteger)badge forType:(TabBarItemType)type {
-    NSInteger index = [self indexForTabType:type];
-    if (index >= 0 && index < self.tabConfigs.count) {
-        UIViewController *vc = self.viewControllers[index];
-        if (badge > 0) {
-            vc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", (long)badge];
-            
-            // 自定义 badge 样式 (iOS 10+)
-            if (@available(iOS 10.0, *)) {
-                vc.tabBarItem.badgeColor = [UIColor systemRedColor];
-                [vc.tabBarItem setBadgeTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}
-                                             forState:UIControlStateNormal];
-            }
-        } else {
-            vc.tabBarItem.badgeValue = nil;
+    CGFloat item_gap = 20;
+    CGFloat item_size = (CGRectGetWidth(self.view.frame) -4*item_gap) / 3;
+    
+    for(int i  = 0; i< self.pic_itemArray.count; i++){
+        
+        UIButton * itemBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        itemBtn.tag = 3000  + i;
+        itemBtn.layer.cornerRadius = 10;
+        [itemBtn setImage: self.pic_itemArray[i] forState: UIControlStateNormal];
+        [itemBtn setSelected: NO];
+        if(i== self.pic_itemArray.count -1){
+            [itemBtn addTarget:self action:@selector(action_open_picker) forControlEvents:UIControlEventTouchUpInside];
         }
-    }
-}
-
-- (void)setTabBarHidden:(BOOL)hidden animated:(BOOL)animated {
-    if (animated) {
-        [UIView animateWithDuration:0.3 animations:^{
-            self.tabBar.alpha = hidden ? 0.0 : 1.0;
-        } completion:^(BOOL finished) {
-            self.tabBar.hidden = hidden;
+        [view addSubview: itemBtn];
+        
+        [itemBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.height.width.mas_equalTo(item_size);
+            int row = i / 3;
+            int col = i % 3;
+            make.top.mas_equalTo(0 + (item_gap + item_size)* row);
+            make.left.mas_equalTo(item_gap + (item_gap + item_size)* col);
         }];
-    } else {
-        self.tabBar.hidden = hidden;
+    }
+    
+    if(self.pic_itemArray.count> 2){
+        UIButton * btn = [self.alert_container viewWithTag:18312];
+        [btn setTitle:@"合成闪屏" forState:UIControlStateNormal];
     }
 }
 
-#pragma mark - Helper Methods
 
-- (NSInteger)indexForTabType:(TabBarItemType)type {
-    for (NSInteger i = 0; i < self.tabConfigs.count; i++) {
-        if (self.tabConfigs[i].type == type) {
-            return i;
+// 上传图片内容给机器
+-(void) action_upload {
+    if( self.pic_itemArray.count <= 1){
+        [SVProgressHUD showErrorWithStatus:@"请添加图片"];
+        [SVProgressHUD dismissWithDelay:1.5];
+        return;
+    }
+    
+    NSMutableArray *imagesToUpload = [NSMutableArray arrayWithArray:self.pic_itemArray];
+    [imagesToUpload removeLastObject];  /// 去掉添加按钮！
+    if( imagesToUpload.count == 1){
+        [self upload_image: imagesToUpload.firstObject];
+    }else {
+        [self createAndUploadGIFWithImages:imagesToUpload];
+    }
+}
+
+#pragma mark - 优化后的GIF生成逻辑
+- (void)createAndUploadGIFWithImages:(NSArray<UIImage *> *)imageslist {
+    [SVProgressHUD showWithStatus:@"正在生成GIF..."];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 准备GIF属性
+        NSDictionary *gifProperties = @{
+            (NSString *)kCGImagePropertyGIFDictionary: @{
+                (NSString *)kCGImagePropertyGIFLoopCount: @0 // 无限循环
+            }
+        };
+        
+        // 创建GIF数据
+        NSMutableData *gifData = [NSMutableData data];
+        CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)gifData, kUTTypeGIF, 0, NULL);
+        CGImageDestinationSetProperties(destination, (__bridge CFDictionaryRef)gifProperties);
+        
+        // 设置参数
+        CGFloat staticImageDuration = 1; // 静态图停留3秒
+        CGFloat transitionDuration = 2;  // 切换效果持续时间
+        NSInteger transitionFrames = 12;   // 切换效果帧数
+        UIColor *selectedColor = self.color_itemArray[self.curr_index_color];
+        NSString *selectedTransition = self.change_itemArray[self.curr_index_change];
+        
+        // 预处理：识别每张图片是静态图还是GIF动图
+        NSMutableArray<NSDictionary *> *imageInfoList = [NSMutableArray array];
+        for (UIImage *image in imageslist) {
+            BOOL isAnimated = (image.images != nil && image.images.count > 1);
+            NSDictionary *info = @{
+                @"image": image,
+                @"isAnimated": @(isAnimated),
+                @"frames": isAnimated ? image.images : @[image],
+                @"durations": isAnimated ? [self getFrameDurationsFromAnimatedImage:image] : @[@(staticImageDuration)]
+            };
+            [imageInfoList addObject:info];
+        }
+        
+        // 生成GIF帧
+        for (NSUInteger i = 0; i < imageInfoList.count; i++) {
+            NSDictionary *currentInfo = imageInfoList[i];
+            NSDictionary *previousInfo = (i > 0) ? imageInfoList[i-1] : nil;
+            
+            // 处理切换效果（除了第一张图片）
+            if (i > 0) {
+                UIImage *previousLastFrame = [self getLastFrameFromImageInfo:previousInfo];
+                UIImage *currentFirstFrame = [self getFirstFrameFromImageInfo:currentInfo];
+                
+                // 生成切换效果的帧
+                [self addTransitionFramesFromImage:previousLastFrame toImage:currentFirstFrame transitionType:selectedTransition backgroundColor:selectedColor
+                                transitionDuration:transitionDuration transitionFrames:transitionFrames destination:destination];
+            }
+            
+            // 添加当前图片的所有帧
+            [self addImageFramesToDestination:destination imageInfo:currentInfo];
+        }
+        
+        // 添加循环切换回第一张的效果（如果有多张图片）
+        if (imageInfoList.count > 1) {
+            NSDictionary *lastInfo = imageInfoList.lastObject;
+            NSDictionary *firstInfo = imageInfoList.firstObject;
+            
+            UIImage *lastLastFrame = [self getLastFrameFromImageInfo:lastInfo];
+            UIImage *firstFirstFrame = [self getFirstFrameFromImageInfo:firstInfo];
+            
+            [self addTransitionFramesFromImage:lastLastFrame
+                                       toImage:firstFirstFrame
+                                 transitionType:selectedTransition
+                              backgroundColor:selectedColor
+                           transitionDuration:transitionDuration
+                            transitionFrames:transitionFrames
+                                  destination:destination];
+        }
+        
+        // 完成GIF创建
+        BOOL success = CGImageDestinationFinalize(destination);
+        if (destination) CFRelease(destination);
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            
+            if (success && gifData.length > 0) {
+                UIImage *gifImage = [UIImage sd_imageWithGIFData:gifData];
+                [self upload_image:gifImage];
+                
+            } else {
+                [SVProgressHUD showErrorWithStatus:@"GIF生成失败"];
+                [SVProgressHUD dismissWithDelay:1.5];
+            }
+            
+            [self hideSettingsPanel];
+        });
+    });
+}
+
+#pragma mark - 辅助方法
+
+// 添加切换效果帧
+- (void)addTransitionFramesFromImage:(UIImage *)fromImage
+                             toImage:(UIImage *)toImage
+                       transitionType:(NSString *)transitionType
+                    backgroundColor:(UIColor *)backgroundColor
+                 transitionDuration:(CGFloat)transitionDuration
+                  transitionFrames:(NSInteger)transitionFrames
+                        destination:(CGImageDestinationRef)destination {
+    
+    for (NSInteger j = 1; j <= transitionFrames; j++) {
+        CGFloat progress = (CGFloat)j / transitionFrames;
+        UIImage *transitionImage = nil;
+        
+        if ([transitionType isEqualToString:@"淡入淡出"]) {
+            transitionImage = [self blendImage:fromImage withImage:toImage progress:progress backgroundColor:backgroundColor];
+        }
+        else if ([transitionType isEqualToString:@"上入下出"]) {
+            transitionImage = [self slideImage:fromImage withImage:toImage progress:progress direction:SlideDirectionTopToBottom backgroundColor:backgroundColor];
+        }
+        else if ([transitionType isEqualToString:@"左入右出"]) {
+            transitionImage = [self slideImage:fromImage withImage:toImage progress:progress direction:SlideDirectionLeftToRight backgroundColor:backgroundColor];
+        }
+        else {
+            // 默认无切换效果
+            transitionImage = toImage;
+        }
+        
+        [self addFrameToDestination:destination image:transitionImage delayTime:transitionDuration/transitionFrames];
+    }
+}
+// 滑动切换效果
+- (UIImage *)slideImage:(UIImage *)fromImage withImage:(UIImage *)toImage progress:(CGFloat)progress direction:(SlideDirection)direction backgroundColor:(UIColor *)backgroundColor {
+    
+    CGSize size = fromImage.size;
+    UIGraphicsBeginImageContextWithOptions(size, YES, fromImage.scale);
+    
+    [backgroundColor setFill];
+    UIRectFill(CGRectMake(0, 0, size.width, size.height));
+    
+    // 计算滑动位置
+    CGRect fromRect = CGRectZero;
+    CGRect toRect = CGRectZero;
+    
+    switch (direction) {
+        case SlideDirectionTopToBottom:
+            fromRect = CGRectMake(0, -size.height * progress, size.width, size.height);
+            toRect = CGRectMake(0, size.height * (1 - progress), size.width, size.height);
+            break;
+        case SlideDirectionBottomToTop:
+            fromRect = CGRectMake(0, size.height * progress, size.width, size.height);
+            toRect = CGRectMake(0, -size.height * (1 - progress), size.width, size.height);
+            break;
+        case SlideDirectionLeftToRight:
+            fromRect = CGRectMake(-size.width * progress, 0, size.width, size.height);
+            toRect = CGRectMake(size.width * (1 - progress), 0, size.width, size.height);
+            break;
+        case SlideDirectionRightToLeft:
+            fromRect = CGRectMake(size.width * progress, 0, size.width, size.height);
+            toRect = CGRectMake(-size.width * (1 - progress), 0, size.width, size.height);
+            break;
+    }
+    
+    // 绘制图片
+    [fromImage drawInRect:fromRect];
+    [toImage drawInRect:toRect];
+    
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resultImage;
+}
+// 混合图片（用于淡入淡出效果)
+- (UIImage *)blendImage:(UIImage *)fromImage withImage:(UIImage *)toImage progress:(CGFloat)progress backgroundColor:(UIColor *)backgroundColor {
+    
+    CGSize size = fromImage.size;
+    UIGraphicsBeginImageContextWithOptions(size, YES, fromImage.scale);
+    
+    // 绘制背景色
+    [backgroundColor setFill];
+    UIRectFill(CGRectMake(0, 0, size.width, size.height));
+    
+    // 根据进度混合两张图片
+    [fromImage drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:1.0 - progress];
+    [toImage drawInRect:CGRectMake(0, 0, size.width, size.height) blendMode:kCGBlendModeNormal alpha:progress];
+    
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resultImage;
+}
+
+
+// 获取GIF图中各帧的持续时间
+- (NSArray<NSNumber *> *)getFrameDurationsFromAnimatedImage:(UIImage *)animatedImage {
+    NSMutableArray *durations = [NSMutableArray array];
+    NSTimeInterval totalDuration = animatedImage.duration;
+    NSInteger frameCount = animatedImage.images.count;
+    
+    if (frameCount > 0 && totalDuration > 0) {
+        NSTimeInterval avgDuration = totalDuration / frameCount;
+        for (NSInteger i = 0; i < frameCount; i++) {
+            [durations addObject:@(avgDuration)];
+        }
+    } else {
+        // 默认每帧0.1秒
+        for (NSInteger i = 0; i < animatedImage.images.count; i++) {
+            [durations addObject:@(0.1)];
         }
     }
-    return -1;
-}
-
-#pragma mark - UITabBarControllerDelegate
-
-- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    // 可以在这里添加切换前的逻辑，比如权限检查等
-    NSInteger newIndex = [self.viewControllers indexOfObject:viewController];
-    NSLog(@"切换到第 %ld 个 tab", (long)newIndex);
     
-    return YES;
+    return durations;
 }
 
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    // 切换完成后的逻辑
-    NSLog(@"已切换到: %@", viewController.tabBarItem.title);
+// 获取图片信息的最后一帧
+- (UIImage *)getLastFrameFromImageInfo:(NSDictionary *)imageInfo {
+    NSArray *frames = imageInfo[@"frames"];
+    return frames.lastObject;
+}
+
+// 获取图片信息的第一帧
+- (UIImage *)getFirstFrameFromImageInfo:(NSDictionary *)imageInfo {
+    NSArray *frames = imageInfo[@"frames"];
+    return frames.firstObject;
+}
+
+// 添加图片的所有帧到GIF
+- (void)addImageFramesToDestination:(CGImageDestinationRef)destination imageInfo:(NSDictionary *)imageInfo {
     
-    // 可以在这里添加统计、动画效果等
-    [self addBounceAnimationToTabBarItem:tabBarController.tabBar.selectedItem];
+    NSArray *frames = imageInfo[@"frames"];
+    NSArray *durations = imageInfo[@"durations"];
+    UIColor *backgroundColor = self.color_itemArray[self.curr_index_color];
+    
+    CGFloat image_sum_duration = 0;
+    for ( NSNumber * duration in durations) {
+        image_sum_duration += duration.doubleValue;
+    }
+    
+    int time = 0;
+   
+    if( image_sum_duration > 2  ) {
+        time = 1;
+    } else if( image_sum_duration > 1.5 && image_sum_duration < 2){
+        time = 2;
+    }else {
+        time = 3 / image_sum_duration;
+    }
+    time = MAX(1, time);
+    
+    while (time > 0) {
+        
+        for (NSInteger i = 0; i < frames.count; i++) {
+            UIImage *frameImage = frames[i];
+            NSTimeInterval delayTime = [durations[i] doubleValue];
+            
+            // 为帧添加背景色
+            UIImage *imageWithBackground = [self image:frameImage withBackgroundColor:backgroundColor];
+            [self addFrameToDestination:destination image:imageWithBackground delayTime:delayTime];
+        }
+        
+        -- time;
+    }
 }
 
-- (void)addBounceAnimationToTabBarItem:(UITabBarItem *)item {
-    // 为选中的 tab 添加弹性动画
-    UIView *tabBarButton = [item valueForKey:@"view"];
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
-    animation.values = @[@1.0, @1.1, @0.9, @1.0];
-    animation.duration = 0.3;
-    animation.calculationMode = kCAAnimationCubic;
-    [tabBarButton.layer addAnimation:animation forKey:@"bounce"];
+// 添加单帧到GIF（通用方法）
+- (void)addFrameToDestination:(CGImageDestinationRef)destination image:(UIImage *)image delayTime:(CGFloat)delayTime {
+    
+    NSDictionary *frameProperties = @{
+        (NSString *)kCGImagePropertyGIFDictionary: @{
+            (NSString *)kCGImagePropertyGIFDelayTime: @(delayTime)
+        }
+    };
+    CGImageDestinationAddImage(destination, image.CGImage, (__bridge CFDictionaryRef)frameProperties);
 }
+
+
+// 为图片添加背景色
+- (UIImage *)image:(UIImage *)image withBackgroundColor:(UIColor *)backgroundColor {
+    CGSize size = image.size;
+    UIGraphicsBeginImageContextWithOptions(size, YES, image.scale);
+    
+    // 绘制背景色
+    [backgroundColor setFill];
+    UIRectFill(CGRectMake(0, 0, size.width, size.height));
+    
+    // 绘制图片
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    
+    UIImage *resultImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resultImage;
+}
+
+
+-(void) editBtnTapped {
+    
+    MJWeakSelf
+    if(self.is_Edit){
+        
+        UIImage *croppedImage = nil;
+        if([UIImage isAnimatedGIFData:weakSelf.image.sd_imageData]){
+            NSData *data_gif = [weakSelf.cropView croppedGIFData];
+            croppedImage = [UIImage sd_imageWithGIFData:data_gif];
+        }
+        else{
+            croppedImage = [weakSelf.cropView croppedImage];
+        }
+        NSLog(@"croppedImage:%@",croppedImage);
+        
+        if(!croppedImage){
+            croppedImage = weakSelf.image;
+        }
+        if(weakSelf.block_edit){
+            weakSelf.block_edit(croppedImage);
+        }
+        [weakSelf action_back];
+    }
+    else{
+        
+        if( !self.is_default_pic ) {
+            
+            [[RXBubbleSelector shared] showFromButton:self.nextBtn bgImageView:@"pic_bubble" cameraAction:^{
+                [self handle_apply_bubble];
+            } sensorAction:^{
+                [self handle_del_bubble];
+            }];
+            
+        }else {
+            
+            [[RXBubbleSelector shared] showSinglePicBubbleViewFromBtn:self.nextBtn bgImageView:@"set_for_flash_page" cameraAction:^{
+                [self handle_apply_bubble];
+            }];
+            
+        }
+    }
+    
+}
+
+
+#import "ImageCropView.h"
+
+@interface ImageCropView () <UIScrollViewDelegate>
+
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIView *cropOverlayView;
+@property (nonatomic, strong) CAShapeLayer *borderLayer;
+
+// GIF相关属性
+@property (nonatomic, strong) NSData *gifData;
+@property (nonatomic, strong) NSMutableArray<UIImage *> *gifFrames;
+@property (nonatomic, assign) NSUInteger currentGIFIndex;
+@property (nonatomic, strong) NSTimer *gifTimer;
+
+@property (nonatomic, assign) CGSize cropSize;
 
 @end
 
-#pragma mark - 动态导航
+@implementation ImageCropView
 
-/// 动态创建并跳转到案例页面
-- (void)navigateToDemoCase:(DemoItem *)demoItem {
-    NSLog(@"尝试跳转到: %@", demoItem.className);
-    
-    // 使用 NSClassFromString 动态获取类
-    Class targetClass = NSClassFromString(demoItem.className);
-    
-    if (!targetClass) {
-        [GCAlertManager showAlertInView:self WithTitle:@"类未找到"
-                                message:[NSString stringWithFormat:@"%@ 类未在运行时找到\n请确保该类已正确编译到项目中", demoItem.className]];
-        return;
+#pragma mark - 初始化方法
+
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image cropSize:(CGSize)cropSize{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _cropSize = cropSize;
+        [self commonInit];
+        self.imageView.image = image;
+        [self setupImageView];
     }
-    
-    // 验证是否是 UIViewController 子类
-    if (![targetClass isSubclassOfClass:[UIViewController class]]) {
-        [GCAlertManager showAlertInView:self WithTitle:@"无效的视图控制器"
-                                message:[NSString stringWithFormat:@"%@ 不是有效的视图控制器", demoItem.className]];
-        return;
-    }
-    
-    // 动态创建实例
-    UIViewController *targetVC = [[targetClass alloc] init];
-    if (!targetVC) {
-        [GCAlertManager showAlertInView:self WithTitle:@"创建失败".localized
-                                message:[NSString stringWithFormat:@"无法创建 %@ 的实例", demoItem.className]];
-        return;
-    }
-    
-    // 设置标题
-    targetVC.title = demoItem.title;
-    
-    // 导航跳转
-    [self navigateToViewController:targetVC];
+    return self;
 }
 
-/// 执行导航跳转
-- (void)navigateToViewController:(UIViewController *)viewController {
-    if (self.navigationController) {
-        [self.navigationController pushViewController:viewController animated:YES];
+- (instancetype)initWithFrame:(CGRect)frame gifData:(NSData *)gifData cropSize:(CGSize)cropSize{
+    self = [super initWithFrame:frame];
+    if (self) {
+        _cropSize = cropSize;
+        
+        [self commonInit];
+        self.gifData = gifData;
+        [self decodeGIFData:gifData];
+        [self setupImageView];
+        [self startGIFAnimation];
+    }
+    return self;
+}
+
+- (void)commonInit {
+    _maxExportHeight = 320; // 默认最大高度限制
+    
+    // 默认配置
+    //_cropSize = CGSizeMake(200, 200);
+    _borderStyle = CropBorderStyleSolid;
+    _borderColor = [UIColor whiteColor];
+    _borderWidth = 2.0;
+    _cornerRadius = 0.0;
+    _maskColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    
+    // 初始化视图
+    [self setupScrollView];
+    [self setupCropOverlay];
+}
+
+- (void)setupScrollView {
+    // 初始化滚动视图，大小为裁剪区域大小，居中放置
+    CGRect cropRect = [self cropRect];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:cropRect];
+    self.scrollView.delegate = self;
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 5.0;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.bounces = YES;
+    self.scrollView.bouncesZoom = YES;
+    self.scrollView.clipsToBounds = YES;
+    [self addSubview:self.scrollView];
+    
+    // 初始化图片视图
+    self.imageView = [[UIImageView alloc] init];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.scrollView addSubview:self.imageView];
+}
+
+
+- (void)setupImageView {
+    UIImage *displayImage = self.gifFrames.firstObject ?: self.imageView.image;
+    if (!displayImage) return;
+    
+    self.imageView.image = displayImage;
+    
+    // 根据裁剪区域设置 imageView 高度为裁剪区域高度
+    CGSize cropSize = self.cropSize;
+    CGSize imageSize = displayImage.size;
+    CGFloat height = cropSize.height;
+    CGFloat width = imageSize.width / imageSize.height * height;
+    
+    self.imageView.frame = CGRectMake(0, 0, width, height);
+    
+    // 设置 scrollView 的 contentSize
+    self.scrollView.contentSize = CGSizeMake(width, height);
+    
+    // 计算初始缩放比例
+    CGFloat widthRatio = cropSize.width / width;
+    CGFloat heightRatio = cropSize.height / height;
+    CGFloat initialZoomScale = MAX(widthRatio, heightRatio);
+    
+    self.scrollView.minimumZoomScale = initialZoomScale;
+    self.scrollView.zoomScale = initialZoomScale;
+    
+    // 居中图片视图
+    [self centerScrollViewContents];
+}
+
+- (void)setupCropOverlay {
+    self.cropOverlayView = [[UIView alloc] initWithFrame:self.bounds];
+    self.cropOverlayView.userInteractionEnabled = NO;
+    [self addSubview:self.cropOverlayView];
+    
+    // 创建遮罩层
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.fillRule = kCAFillRuleEvenOdd;
+    maskLayer.fillColor = self.maskColor.CGColor;
+    [self.cropOverlayView.layer addSublayer:maskLayer];
+    
+    // 创建边框层
+    self.borderLayer = [CAShapeLayer layer];
+    self.borderLayer.fillColor = [UIColor clearColor].CGColor;
+    self.borderLayer.strokeColor = self.borderColor.CGColor;
+    self.borderLayer.lineWidth = self.borderWidth;
+    [self updateBorderStyle];
+    [self.cropOverlayView.layer addSublayer:self.borderLayer];
+    
+    [self updateCropOverlay];
+}
+
+- (void)updateCropOverlay {
+    CGRect cropRect = [self cropRect];
+    
+    // 更新遮罩层
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRect:self.cropOverlayView.bounds];
+    UIBezierPath *cropPath = [UIBezierPath bezierPathWithRect:cropRect];
+    [maskPath appendPath:cropPath];
+    
+    CAShapeLayer *maskLayer = (CAShapeLayer *)self.cropOverlayView.layer.sublayers.firstObject;
+    maskLayer.path = maskPath.CGPath;
+    
+    // 更新边框层
+    UIBezierPath *borderPath = [UIBezierPath bezierPathWithRect:cropRect];
+    if (self.cornerRadius > 0) {
+        borderPath = [UIBezierPath bezierPathWithRoundedRect:cropRect cornerRadius:self.cornerRadius];
+    }
+    self.borderLayer.path = borderPath.CGPath;
+}
+
+- (void)updateBorderStyle {
+    switch (self.borderStyle) {
+        case CropBorderStyleSolid:
+            self.borderLayer.lineDashPattern = nil;
+            break;
+        case CropBorderStyleDashed:
+            self.borderLayer.lineDashPattern = @[@(10), @(5)];
+            break;
+        case CropBorderStyleDotted:
+            self.borderLayer.lineDashPattern = @[@(1), @(2)];
+            break;
+    }
+}
+
+- (CGRect)cropRect {
+    CGPoint center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    return CGRectMake(center.x - self.cropSize.width/2,
+                      center.y - self.cropSize.height/2,
+                      self.cropSize.width,
+                      self.cropSize.height);
+}
+
+#pragma mark - GIF支持
+/*
+ - (void)decodeGIFData:(NSData *)data {
+ if (!data) return;
+ 
+ self.gifFrames = [NSMutableArray array]; // 存储帧
+ 
+ // 创建 CGImageSource
+ CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
+ if (source) {
+ size_t count = CGImageSourceGetCount(source); // 获取帧数
+ 
+ for (size_t i = 0; i < count; i++) {
+ @autoreleasepool {
+ // 获取当前帧的 CGImage 和帧属性
+ CGImageRef imageRef = CGImageSourceCreateImageAtIndex(source, i, NULL);
+ 
+ if (imageRef) {
+ // 获取帧信息（例如是否带透明信息）
+ NSDictionary *frameProperties = (__bridge_transfer NSDictionary *)CGImageSourceCopyPropertiesAtIndex(source, i, NULL);
+ NSDictionary *gifFrameProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
+ NSNumber *hasAlphaChannel = gifFrameProperties[(NSString *)kCGImagePropertyHasAlpha];
+ 
+ // 创建透明背景的 UIImage
+ CGSize imageSize = CGSizeMake(CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
+ UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0); // 设置透明背景
+ CGContextRef context = UIGraphicsGetCurrentContext(); // 获取上下文
+ 
+ // 处理透明通道
+ if (hasAlphaChannel.boolValue) {
+ CGContextSetBlendMode(context, kCGBlendModeCopy);
+ }
+ 
+ UIImage *frameImage = [UIImage imageWithCGImage:imageRef];
+ [frameImage drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+ 
+ UIImage *compositedImage = UIGraphicsGetImageFromCurrentImageContext();
+ UIGraphicsEndImageContext();
+ 
+ // 保存帧到数组中
+ [self.gifFrames addObject:compositedImage];
+ 
+ // 释放 CGImage
+ CGImageRelease(imageRef);
+ }
+ }
+ }
+ 
+ // 释放 CGImageSource
+ CFRelease(source);
+ }
+ 
+ self.currentGIFIndex = 0; // 初始化当前帧索引
+ }
+ */
+- (void)decodeGIFData:(NSData *)data {
+    if (!data) return;
+    
+    self.gifFrames = [NSMutableArray array];
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, NULL);
+    
+    if (source) {
+        size_t count = CGImageSourceGetCount(source);
+        
+        for (size_t i = 0; i < count; i++) {
+            CGImageRef imageRef = CGImageSourceCreateImageAtIndex(source, i, NULL);
+            if (imageRef) {
+                UIImage *image = [UIImage imageWithCGImage:imageRef];
+                [self.gifFrames addObject:image];
+                CGImageRelease(imageRef);
+            }
+        }
+        
+        CFRelease(source);
+    }
+    
+    self.currentGIFIndex = 0;
+}
+
+- (void)startGIFAnimation {
+    if (self.gifFrames.count <= 1) return;
+    
+    // 获取GIF的帧延迟时间
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)self.gifData, NULL);
+    NSDictionary *properties = (__bridge_transfer NSDictionary *)CGImageSourceCopyProperties(source, NULL);
+    NSDictionary *gifProperties = properties[(NSString *)kCGImagePropertyGIFDictionary];
+    CGFloat delayTime = [gifProperties[(NSString *)kCGImagePropertyGIFDelayTime] floatValue];
+    CFRelease(source);
+    
+    if (delayTime <= 0) {
+        delayTime = 0.1; // 默认值
+    }
+    
+    self.gifTimer = [NSTimer scheduledTimerWithTimeInterval:delayTime
+                                                     target:self
+                                                   selector:@selector(updateGIFAnimation)
+                                                   userInfo:nil
+                                                    repeats:YES];
+}
+
+- (void)updateGIFAnimation {
+    if (self.gifFrames.count == 0) return;
+    
+    self.currentGIFIndex = (self.currentGIFIndex + 1) % self.gifFrames.count;
+    self.imageView.image = self.gifFrames[self.currentGIFIndex];
+}
+
+- (void)stopGIFAnimation {
+    [self.gifTimer invalidate];
+    self.gifTimer = nil;
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    [self centerScrollViewContents];
+}
+
+- (void)centerScrollViewContents {
+    CGSize boundsSize = self.scrollView.bounds.size;
+    CGRect contentsFrame = self.imageView.frame;
+    
+    if (contentsFrame.size.width < boundsSize.width) {
+        contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
     } else {
-        UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:viewController];
-        navVC.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self presentViewController:navVC animated:YES completion:nil];
+        contentsFrame.origin.x = 0.0f;
     }
+    
+    if (contentsFrame.size.height < boundsSize.height) {
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
+    } else {
+        contentsFrame.origin.y = 0.0f;
+    }
+    
+    self.imageView.frame = contentsFrame;
 }
 
 
+#pragma mark - 属性设置
 
-通过视图分析器，查看到 UIWindowScene - MainTabBarController - UINavigationController - DiscoverVC(点击cell 后是TakephoneVC)
-默认的头部导航栏了（白底、返回按钮文字都是蓝色、标题是黑色），我很满意。
-但是底部的tabbar栏一直显示，体验不好了。
+- (void)setCropSize:(CGSize)cropSize {
+    _cropSize = cropSize;
+    [self updateCropOverlay];
+    [self setupImageView];
+}
 
-如何设置我的控制器结构呢？ 
+- (void)setBorderStyle:(CropBorderStyle)borderStyle {
+    _borderStyle = borderStyle;
+    [self updateBorderStyle];
+}
+
+- (void)setBorderColor:(UIColor *)borderColor {
+    _borderColor = borderColor;
+    self.borderLayer.strokeColor = borderColor.CGColor;
+}
+
+- (void)setBorderWidth:(CGFloat)borderWidth {
+    _borderWidth = borderWidth;
+    self.borderLayer.lineWidth = borderWidth;
+}
+
+- (void)setCornerRadius:(CGFloat)cornerRadius {
+    _cornerRadius = cornerRadius;
+    [self updateCropOverlay];
+}
+
+- (void)setMaskColor:(UIColor *)maskColor {
+    _maskColor = maskColor;
+    CAShapeLayer *maskLayer = (CAShapeLayer *)self.cropOverlayView.layer.sublayers.firstObject;
+    maskLayer.fillColor = maskColor.CGColor;
+}
+
+#pragma mark - 裁剪结果
+- (UIImage *)croppedImage{
+    return [self croppedImage:self.imageView.image outputSize:self.cropSize fillColor:[UIColor blackColor]];
+}
+
+
+- (UIImage *)croppedImage:(UIImage *)image_source outputSize:(CGSize)outputSize fillColor:(UIColor *)fillColor {
+    CGRect cropRect = [self cropRect];
+    CGRect zoomedCropRect = [self convertRect:cropRect toView:self.imageView];
+    
+    // 确保裁剪区域在图片范围内
+    zoomedCropRect = CGRectIntersection(zoomedCropRect, self.imageView.bounds);
+    if (CGRectIsNull(zoomedCropRect) || CGRectIsEmpty(zoomedCropRect)) {
+        return nil;
+    }
+    
+    // 获取当前显示的图片
+    UIImage *image = image_source; // 输入源图片
+    if (!image) return nil;
+    
+    // 计算实际裁剪区域在原始图片中的位置
+    CGFloat scale = image.size.width / self.imageView.bounds.size.width;
+    CGRect scaledCropRect = CGRectMake(
+                                       zoomedCropRect.origin.x * scale,
+                                       zoomedCropRect.origin.y * scale,
+                                       zoomedCropRect.size.width * scale,
+                                       zoomedCropRect.size.height * scale
+                                       );
+    
+    // 裁剪图片
+    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, scaledCropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    // 在保持比例的情况下，将裁剪图片尺寸适配到 outputSize（Aspect Fit）
+    CGFloat croppedImageAspectRatio = croppedImage.size.width / croppedImage.size.height;
+    CGFloat outputAspectRatio = outputSize.width / outputSize.height;
+    
+    CGSize finalSize;
+    if (croppedImageAspectRatio > outputAspectRatio) {
+        // 裁剪图片更宽，以 outputSize 宽度为基准，等比缩放
+        finalSize = CGSizeMake(outputSize.width, outputSize.width / croppedImageAspectRatio);
+    } else {
+        // 裁剪图片更高，以 outputSize 高度为基准，等比缩放
+        finalSize = CGSizeMake(outputSize.height * croppedImageAspectRatio, outputSize.height);
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(outputSize, NO, 1.0);
+    
+    // 填充背景色
+    if (fillColor) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, fillColor.CGColor);
+        CGContextFillRect(context, CGRectMake(0, 0, outputSize.width, outputSize.height));
+    }
+    
+    // 计算绘制位置，将最终图片居中
+    CGFloat offsetX = (outputSize.width - finalSize.width) / 2.0;
+    CGFloat offsetY = (outputSize.height - finalSize.height) / 2.0;
+    
+    [croppedImage drawInRect:CGRectMake(offsetX, offsetY, finalSize.width, finalSize.height)];
+    
+    UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return resizedImage;
+}
+
+
+- (NSData *)croppedGIFData {
+    NSData *gifData = self.gifData; // 自定义方法获取原始 GIF 数据
+    if (!gifData) {
+        return nil;
+    }
+    
+    // 使用 ImageIO 加载 GIF 的帧数据
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)gifData, NULL);
+    if (!source) {
+        return nil;
+    }
+    
+    size_t frameCount = CGImageSourceGetCount(source);
+    NSMutableArray *frames = [NSMutableArray arrayWithCapacity:frameCount];
+    NSMutableArray *frameDurations = [NSMutableArray arrayWithCapacity:frameCount];
+    
+    NSDictionary *gifProperties = @{
+        (NSString *)kCGImagePropertyGIFDictionary: @{
+            (NSString *)kCGImagePropertyGIFLoopCount: @(0) // 无限循环
+        }
+    };
+    
+    for (size_t i = 0; i < frameCount; i++) {
+        @autoreleasepool {
+            CGImageRef frameImage = CGImageSourceCreateImageAtIndex(source, i, NULL);
+            if (!frameImage) continue;
+            
+            // 获取帧时间
+            NSDictionary *frameProperties = (__bridge_transfer NSDictionary *)CGImageSourceCopyPropertiesAtIndex(source, i, NULL);
+            NSDictionary *gifFrameProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
+            NSNumber *delayTime = gifFrameProperties[(NSString *)kCGImagePropertyGIFDelayTime];
+            NSTimeInterval frameDuration = delayTime.doubleValue ?: 0.1; // 默认 0.1s
+            
+            // 保存帧时间
+            [frameDurations addObject:@(frameDuration)];
+            
+            // 创建 UIImage
+            UIImage *frameUIImage = [UIImage imageWithCGImage:frameImage];
+            CGImageRelease(frameImage);
+            
+            // 裁剪帧
+            UIImage *croppedFrame = [self croppedImage:frameUIImage outputSize:self.cropSize fillColor:[UIColor blackColor]];
+            
+            // 添加到帧数组
+            if (croppedFrame) {
+                [frames addObject:croppedFrame];
+            }
+        }
+    }
+    
+    CFRelease(source);
+    
+    // 创建新的 GIF 数据
+    NSMutableData *croppedGIFData = [NSMutableData data];
+    CGImageDestinationRef destination = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)croppedGIFData, kUTTypeGIF, frames.count, NULL);
+    if (!destination) {
+        return nil;
+    }
+    
+    for (size_t i = 0; i < frames.count; i++) {
+        UIImage *frame = frames[i];
+        NSNumber *frameDuration = frameDurations[i];
+        NSDictionary *frameProperties = @{
+            (NSString *)kCGImagePropertyGIFDictionary: @{
+                (NSString *)kCGImagePropertyGIFDelayTime: frameDuration
+            }
+        };
+        CGImageDestinationAddImage(destination, frame.CGImage, (__bridge CFDictionaryRef)frameProperties);
+    }
+    
+    // 设置 GIF 全局属性
+    CGImageDestinationSetProperties(destination, (__bridge CFDictionaryRef)gifProperties);
+    
+    // 完成 GIF 导出
+    if (!CGImageDestinationFinalize(destination)) {
+        CFRelease(destination);
+        return nil;
+    }
+    
+    CFRelease(destination);
+    return [croppedGIFData copy];
+}
+
+
+- (NSTimeInterval)frameDurationAtIndex:(size_t)index source:(CGImageSourceRef)source {
+    NSDictionary *frameProperties = (__bridge_transfer NSDictionary *)CGImageSourceCopyPropertiesAtIndex(source, index, NULL);
+    NSDictionary *gifProperties = frameProperties[(NSString *)kCGImagePropertyGIFDictionary];
+    NSNumber *delayTime = gifProperties[(NSString *)kCGImagePropertyGIFDelayTime];
+    return delayTime.doubleValue ?: 0.1; // 如果未定义，默认 0.1 秒
+}
+
+#pragma mark - 清理
+
+- (void)dealloc {
+    [self stopGIFAnimation];
+}
+
+@end
+ 
+
+
+
+代码是选择图片后简单裁剪保存数组中，多张的话就合成 pdf上传。单张直接上传相机
+现在我发现选择的照片在剪辑详情页面还是正常显示的，但是点击使用图片按钮后，就发现图片从竖像变成横向。

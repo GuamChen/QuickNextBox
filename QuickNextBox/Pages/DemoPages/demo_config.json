@@ -22,6 +22,13 @@
       "icon": "toolbar"
     },
     {
+      "className": "ImageCropViewController",
+      "title": "图片裁剪演示",
+      "description": "图片裁剪演示",
+      "category": "UI组件",
+      "icon": "toolbar"
+    },
+    {
       "className": "NetworkDemoVC",
       "title": "网络请求演示",
       "description": "学习使用 NSURLSession 进行网络通信",

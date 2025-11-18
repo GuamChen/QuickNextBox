@@ -28,6 +28,7 @@
 		C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0BD2EBF3DF2009DF25C /* NSString+Localized.m */; };
 		C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C02EBF3DF2009DF25C /* AppDelegate.m */; };
 		C353C0DB2EBF3DF2009DF25C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C82EBF3DF2009DF25C /* main.m */; };
+		C358974D2ECCCE7D00388B5A /* ImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C358974C2ECCCE7100388B5A /* ImageCropViewController.m */; };
 		C3A426442EBF4485006E1200 /* 草稿纸 in Sources */ = {isa = PBXBuildFile; fileRef = C3A426432EBF4485006E1200 /* 草稿纸 */; };
 		C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A426462EBF5F0D006E1200 /* MotionManager.m */; };
 		C3A61B742EC8B61C00F8EA23 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B702EC8B61C00F8EA23 /* LocationHandler.m */; };
@@ -93,6 +94,8 @@
 		C353C0C22EBF3DF2009DF25C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C353C0C82EBF3DF2009DF25C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C358974B2ECCCE6B00388B5A /* ImageCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCropViewController.h; sourceTree = "<group>"; };
+		C358974C2ECCCE7100388B5A /* ImageCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCropViewController.m; sourceTree = "<group>"; };
 		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
 		C3A426452EBF5F02006E1200 /* MotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionManager.h; sourceTree = "<group>"; };
 		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
@@ -183,6 +186,8 @@
 				C30EB86A2EC098710028805C /* ToolbarDemoVC.m */,
 				C3EC824E2EC220C80098F454 /* TakePhoteController.h */,
 				C3EC824F2EC220E50098F454 /* TakePhoteController.m */,
+				C358974B2ECCCE6B00388B5A /* ImageCropViewController.h */,
+				C358974C2ECCCE7100388B5A /* ImageCropViewController.m */,
 				C30EB8662EC098710028805C /* demo_config.json */,
 				C3EC82602EC391C40098F454 /* 视频播放器 */,
 				C3EC82672EC4D9900098F454 /* pdf查看器 */,
@@ -473,6 +478,7 @@
 				C30EB8752EC0988B0028805C /* DemoItem.m in Sources */,
 				C30EB8702EC098710028805C /* AccelerometerVC.m in Sources */,
 				C3EC82722EC4DDFF0098F454 /* QNBNavigationController.m in Sources */,
+				C358974D2ECCCE7D00388B5A /* ImageCropViewController.m in Sources */,
 				C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */,
 				C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */,
 				C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */,
