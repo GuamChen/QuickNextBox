@@ -1,8 +1,8 @@
-// LR126RCX_PDFViewController.m
-#import "PDFViewController.h"
+// LR126RCX_QNB25_PDFViewController.m
+#import "QNB25_PDFViewController.h"
 #import "PDFManager.h"
 
-@interface PDFViewController () <UIScrollViewDelegate>
+@interface QNB25_PDFViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) PDFView *pdfView;
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -13,7 +13,7 @@
 
 @end
 
-@implementation PDFViewController
+@implementation QNB25_PDFViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

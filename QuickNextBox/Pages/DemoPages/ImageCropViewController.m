@@ -9,12 +9,13 @@
 
 #import "ImageCropViewController.h"
 
-@interface ImageCropViewController ()
+@interface ImageCropViewController () <UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIView *cropAreaView;
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 
+@property (nonatomic, strong) UIImage *image;
 @end
 
 @implementation ImageCropViewController
@@ -83,9 +84,10 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
         image = info[UIImagePickerControllerOriginalImage];
     }
     self.image = image;
-    
-    [self insertImage];
-    [picker dismissViewControllerAnimated:YES completion:nil];
+
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [self insertImage];
+    }];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -123,14 +125,26 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 
 #pragma mark - 拖动裁剪框
 - (void)handlePan:(UIPanGestureRecognizer *)gesture {
-    CGPoint translation = [gesture translationInView:self.view];
+    CGPoint translation = [gesture translationInView:self.view]; /// 在指定视图的坐标系中进行转换
     gesture.view.center = CGPointMake(gesture.view.center.x + translation.x,
                                       gesture.view.center.y + translation.y);
-    [gesture setTranslation:CGPointZero inView:self.view];
+    [gesture setTranslation:CGPointZero inView:self.view];  /// 把当前手势的“移动偏移量”归零，避免累计叠加
 }
 
 #pragma mark - 点击裁剪按钮
+/**
+ UIImageView：AspectFit 显示图片（比例不变，通常有黑边）
+ cropAreaView：一个在屏幕坐标系下的裁剪框
+ 需要把“屏幕坐标系的裁剪框”转换成“图片坐标系的裁剪区域”
+ 最终执行 CGImageCreateWithImageInRect 裁剪
+ 视觉上 -> 图片坐标系 -> 真实像素裁剪
+ */
 - (void)cropButtonPressed {
+    if(!self.image) {
+        [GCAlertManager showTemporaryMessage:@"image is nil"];
+        return;
+    }
+    
     UIImage *croppedImage = [self cropImage:self.image withCropRect:self.cropAreaView.frame];
     
     // 展示结果

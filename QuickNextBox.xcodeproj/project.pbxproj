@@ -16,6 +16,9 @@
 		C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EB8682EC098710028805C /* MBHudDemoVC.m */; };
 		C30EB8752EC0988B0028805C /* DemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30EB8742EC0988B0028805C /* DemoItem.m */; };
 		C30EB87D2EC0BC0B0028805C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C30EB87B2EC0BC0B0028805C /* Localizable.strings */; };
+		C31138942ED607B50024FE86 /* NetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C31138932ED607B50024FE86 /* NetworkReachabilityManager.m */; };
+		C31138972ED609E70024FE86 /* NetworkStatusMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C31138962ED609D40024FE86 /* NetworkStatusMonitor.m */; };
+		C311389A2ED613870024FE86 /* SSIDMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = C31138992ED612D50024FE86 /* SSIDMonitor.m */; };
 		C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C353C0C12EBF3DF2009DF25C /* Assets.xcassets */; };
 		C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */; };
 		C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0A92EBF3DF2009DF25C /* HomeVC.m */; };
@@ -43,7 +46,7 @@
 		C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82622EC392ED0098F454 /* LRVideoPlayerManager.m */; };
 		C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82652EC393680098F454 /* LRVideoPlayerViewController.m */; };
 		C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82692EC4D99B0098F454 /* PDFManager.m */; };
-		C3EC826D2EC4D9CA0098F454 /* PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC826C2EC4D9CA0098F454 /* PDFViewController.m */; };
+		C3EC826D2EC4D9CA0098F454 /* QNB25_PDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC826C2EC4D9CA0098F454 /* QNB25_PDFViewController.m */; };
 		C3EC826F2EC4DA0D0098F454 /* File.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3EC826E2EC4DA0D0098F454 /* File.txt */; };
 		C3EC82722EC4DDFF0098F454 /* QNBNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82712EC4DDFF0098F454 /* QNBNavigationController.m */; };
 		C3EC82752EC4E1D30098F454 /* FLYConnectionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C3EC82742EC4E1D30098F454 /* FLYConnectionHelper.m */; };
@@ -68,6 +71,12 @@
 		C30EB8742EC0988B0028805C /* DemoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoItem.m; sourceTree = "<group>"; };
 		C30EB87C2EC0BC0B0028805C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C30EB87E2EC0BC5B0028805C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C31138922ED607AB0024FE86 /* NetworkReachabilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkReachabilityManager.h; sourceTree = "<group>"; };
+		C31138932ED607B50024FE86 /* NetworkReachabilityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkReachabilityManager.m; sourceTree = "<group>"; };
+		C31138952ED609D00024FE86 /* NetworkStatusMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkStatusMonitor.h; sourceTree = "<group>"; };
+		C31138962ED609D40024FE86 /* NetworkStatusMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkStatusMonitor.m; sourceTree = "<group>"; };
+		C31138982ED612CB0024FE86 /* SSIDMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSIDMonitor.h; sourceTree = "<group>"; };
+		C31138992ED612D50024FE86 /* SSIDMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSIDMonitor.m; sourceTree = "<group>"; };
 		C353BD8A2EBCFD53009DF25C /* QuickNextBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickNextBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C353C0A62EBF3DF2009DF25C /* DiscoverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
 		C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
@@ -123,8 +132,8 @@
 		C3EC82652EC393680098F454 /* LRVideoPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LRVideoPlayerViewController.m; sourceTree = "<group>"; };
 		C3EC82682EC4D9970098F454 /* PDFManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFManager.h; sourceTree = "<group>"; };
 		C3EC82692EC4D99B0098F454 /* PDFManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFManager.m; sourceTree = "<group>"; };
-		C3EC826B2EC4D9AB0098F454 /* PDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFViewController.h; sourceTree = "<group>"; };
-		C3EC826C2EC4D9CA0098F454 /* PDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFViewController.m; sourceTree = "<group>"; };
+		C3EC826B2EC4D9AB0098F454 /* QNB25_PDFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNB25_PDFViewController.h; sourceTree = "<group>"; };
+		C3EC826C2EC4D9CA0098F454 /* QNB25_PDFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNB25_PDFViewController.m; sourceTree = "<group>"; };
 		C3EC826E2EC4DA0D0098F454 /* File.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = File.txt; sourceTree = "<group>"; };
 		C3EC82702EC4DDFB0098F454 /* QNBNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNBNavigationController.h; sourceTree = "<group>"; };
 		C3EC82712EC4DDFF0098F454 /* QNBNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNBNavigationController.m; sourceTree = "<group>"; };
@@ -220,6 +229,12 @@
 		C353C0B02EBF3DF2009DF25C /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				C31138982ED612CB0024FE86 /* SSIDMonitor.h */,
+				C31138992ED612D50024FE86 /* SSIDMonitor.m */,
+				C31138952ED609D00024FE86 /* NetworkStatusMonitor.h */,
+				C31138962ED609D40024FE86 /* NetworkStatusMonitor.m */,
+				C31138922ED607AB0024FE86 /* NetworkReachabilityManager.h */,
+				C31138932ED607B50024FE86 /* NetworkReachabilityManager.m */,
 				C353C0A62EBF3DF2009DF25C /* DiscoverVC.h */,
 				C353C0A72EBF3DF2009DF25C /* DiscoverVC.m */,
 				C353C0A82EBF3DF2009DF25C /* HomeVC.h */,
@@ -345,8 +360,8 @@
 				C3EC826E2EC4DA0D0098F454 /* File.txt */,
 				C3EC82682EC4D9970098F454 /* PDFManager.h */,
 				C3EC82692EC4D99B0098F454 /* PDFManager.m */,
-				C3EC826B2EC4D9AB0098F454 /* PDFViewController.h */,
-				C3EC826C2EC4D9CA0098F454 /* PDFViewController.m */,
+				C3EC826B2EC4D9AB0098F454 /* QNB25_PDFViewController.h */,
+				C3EC826C2EC4D9CA0098F454 /* QNB25_PDFViewController.m */,
 			);
 			path = "pdf查看器";
 			sourceTree = "<group>";
@@ -481,11 +496,12 @@
 				C358974D2ECCCE7D00388B5A /* ImageCropViewController.m in Sources */,
 				C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */,
 				C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */,
+				C31138972ED609E70024FE86 /* NetworkStatusMonitor.m in Sources */,
 				C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */,
 				C3A61B792EC8B64500F8EA23 /* CoreDataManager.m in Sources */,
 				C3027E4C2EBF9B890049FEBC /* MD5Tool.m in Sources */,
 				C3A61B7F2EC8B6C300F8EA23 /* CoreDataViewController.m in Sources */,
-				C3EC826D2EC4D9CA0098F454 /* PDFViewController.m in Sources */,
+				C3EC826D2EC4D9CA0098F454 /* QNB25_PDFViewController.m in Sources */,
 				C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */,
 				C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */,
 				C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */,
@@ -495,6 +511,7 @@
 				C3A61B742EC8B61C00F8EA23 /* LocationHandler.m in Sources */,
 				C3A61B752EC8B61C00F8EA23 /* LocationViewController.m in Sources */,
 				C3A61B7C2EC8B6A400F8EA23 /* PersonManager.m in Sources */,
+				C31138942ED607B50024FE86 /* NetworkReachabilityManager.m in Sources */,
 				C3A426442EBF4485006E1200 /* 草稿纸 in Sources */,
 				C353C0D42EBF3DF2009DF25C /* ProfileVC.m in Sources */,
 				C353C0D52EBF3DF2009DF25C /* TabBarItemConfig.m in Sources */,
@@ -505,6 +522,7 @@
 				C3EC82502EC220E50098F454 /* TakePhoteController.m in Sources */,
 				C30EB8532EC0937B0028805C /* GCAlertManager.m in Sources */,
 				C3A61B822EC8B73100F8EA23 /* Model.xcdatamodeld in Sources */,
+				C311389A2ED613870024FE86 /* SSIDMonitor.m in Sources */,
 				C353C0D82EBF3DF2009DF25C /* LanguageManager.m in Sources */,
 				C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */,
 				C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */,

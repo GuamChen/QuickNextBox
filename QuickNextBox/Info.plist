@@ -54,12 +54,23 @@
         <key>NSDocumentsFolderUsageDescription</key>
         <string>应用需要访问文件以选择图片内容。</string>
         
-        <key>NSLocationWhenInUseUsageDescription</key>
-        <string>需要使用您的位置</string>
+<!--        <key>NSLocationWhenInUseUsageDescription</key>-->
+<!--        <string>需要使用您的位置</string>-->
+<!--        -->
+<!--        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>-->
+<!--        <string>需要使用您的位置</string>-->
         
+        <key>NSLocationWhenInUseUsageDescription</key>
+        <string>需要定位权限以获取 Wi-Fi 名称（SSID）。</string>
         <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-        <string>需要使用您的位置</string>
+        <string>需要定位权限以获取 Wi-Fi 名称。</string>
+        <key>NSLocationTemporaryUsageDescriptionDictionary</key>
+        <dict>
+            <key>SSIDAccess</key>
+            <string>需要精确位置以读取当前的 Wi-Fi SSID。</string>
+        </dict>
 
+        
 <!--要让 iOS 知道你的 APP 能接收 .fit 文件，需要在 Info.plist 中添加 Document Types（文档类型声明）：-->
         <key>CFBundleDocumentTypes</key>
         <array>

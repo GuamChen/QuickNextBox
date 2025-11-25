@@ -8,6 +8,10 @@
 
 // HomeVC.m
 #import "HomeVC.h"
+#import "NetworkStatusMonitor.h"
+#import "SSIDMonitor.h"
+
+
 
 @interface HomeVC ()
 
@@ -26,60 +30,75 @@
 
 - (void)setupUI {
     UILabel *titleLabel = [[UILabel alloc] init];
-    titleLabel.text = @"首页内容".localized;
+    titleLabel.text = @"网络监控内容".localized;
     titleLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor labelColor];
     
     [self.view addSubview:titleLabel];
-    
-    // 使用自动布局
-    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [NSLayoutConstraint activateConstraints:@[
-        [titleLabel.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor],
-        [titleLabel.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor],
-        [titleLabel.leadingAnchor constraintGreaterThanOrEqualToAnchor:self.view.leadingAnchor constant:20],
-        [titleLabel.trailingAnchor constraintLessThanOrEqualToAnchor:self.view.trailingAnchor constant:-20]
-    ]];
-    
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(languageDidChange)
-                                                 name:kLanguageDidChangeNotification
-                                               object:nil];
+    UILabel *netState = [[UILabel alloc] init];
+    netState.text = @"网络状态".localized;
+    netState.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
+    netState.textAlignment = NSTextAlignmentCenter;
+    netState.textColor = [UIColor labelColor];
+    
+    [self.view addSubview:netState];
+    [netState mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo( titleLabel.mas_bottom).offset(30);
+        make.centerX.equalTo(self.view);
+    }];
+    
+     UILabel *ssidLabel = [[UILabel alloc] init];
+    ssidLabel.text = @"网络状态".localized;
+    ssidLabel.font = [UIFont systemFontOfSize:24 weight:UIFontWeightMedium];
+    ssidLabel.textAlignment = NSTextAlignmentCenter;
+    ssidLabel.textColor = [UIColor labelColor];
+    
+    [self.view addSubview:ssidLabel];
+    [ssidLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo( titleLabel.mas_bottom).offset(70);
+        make.centerX.equalTo(self.view);
+    }];
+    
+    
+    [[NetworkStatusMonitor shared] setNetworkChangedBlock:^(GCNetworkType type) {
+        NSString * res = nil;
+        switch (type) {
+            case GCNetworkTypeWiFi:
+                res = @"使用 Wi-Fi";
+                break;
+            case GCNetworkTypeCellular:
+                res = @"使用蜂窝网络" ;
+                break;
+            case GCNetworkTypeNone:
+                res = @"无网络";
+                break;
+        }
+        NSLog(@"当前网络情况: %@", res);
+
+        netState.text = res;
+        
+    }];
+    
+    [[NetworkStatusMonitor shared] startMonitoring];
+
+    
+    
+    [SSIDMonitor shared].SSIDChangedBlock = ^(NSString *ssid) {
+        ssidLabel.text = ssid ?: @"未连接 Wi-Fi";
+        NSLog(@"当前 SSID: %@", ssid);
+    };
+    
+    [[SSIDMonitor shared] startMonitoring];
+    
 }
 
 
-- (void)setupUI2 {
-    // 方法1：使用宏
-    self.title = @"welcome".localized;;
-    self.navigationItem.title = Localized(@"home_title");
-    
-    // 方法2：直接使用扩展
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"welcome".localized;
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    [button setTitle:@"save".localized forState:UIControlStateNormal];
-    
-    // 方法3：使用管理类
-    NSString *text = [[LanguageManager sharedManager] localizedStringForKey:@"home_description" comment:@"首页描述"];
-}
 
 
-- (void)languageDidChange {
-    // 重新设置所有文本
-    [self updateTexts];
-    
-    // 如果需要，重新加载界面
-    [self viewDidLoad];
-}
-
-- (void)updateTexts {
-    self.title = @"welcome".localized;;
-    // 更新所有UI元素的文本
-}
+ 
 @end

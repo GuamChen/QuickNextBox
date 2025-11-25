@@ -6,13 +6,13 @@
 //
 
 
-// LR126RCX_PDFViewController.h
+// LR126RCX_QNB25_PDFViewController.h
 #import <UIKit/UIKit.h>
 #import <PDFKit/PDFKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PDFViewController : UIViewController
+@interface QNB25_PDFViewController : UIViewController
 
 @property (nonatomic, strong) NSString *pdfFilePath;
 @property (nonatomic, strong) NSString *pdfTitle;

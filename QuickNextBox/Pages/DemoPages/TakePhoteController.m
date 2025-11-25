@@ -75,6 +75,9 @@
         make.width.equalTo(self.view).multipliedBy(0.8);
         make.height.mas_equalTo(44);
     }];
+    
+    photoButton.subtitleLabel;
+    photoButton.font;
 }
 
 
