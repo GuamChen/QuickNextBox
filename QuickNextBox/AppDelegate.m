@@ -37,6 +37,8 @@
     [[LanguageManager sharedManager] currentLanguage];
 
     
+    
+    [self setupMonitor];
     return YES;
 }
 
@@ -93,4 +95,25 @@
 }
 
 
+-(void)setupMonitor{
+    [[NetworkStatusMonitor shared] setNetworkChangedBlock:^(GCNetworkType type) {
+        NSString * res = nil;
+        switch (type) {
+            case GCNetworkTypeWiFi:
+                res = @"使用 Wi-Fi";
+                break;
+            case GCNetworkTypeCellular:
+                res = @"使用蜂窝网络" ;
+                break;
+            case GCNetworkTypeNone:
+                res = @"无网络";
+                break;
+        }
+        NSLog(@"当前网络情况: %@", res);
+        [GCAlertManager showTemporaryMessage:res];
+        
+    }];
+    
+    [[NetworkStatusMonitor shared] startMonitoring];
+}
 @end
