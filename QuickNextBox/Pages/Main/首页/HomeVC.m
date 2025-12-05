@@ -6,7 +6,6 @@
 
 
 #import "HomeVC.h"
-#import "SettingTableViewCell.h"
 
 
 
@@ -32,6 +31,9 @@
         @{@"title": @"如何做自定义按钮？",
           @"class":@"CustomButtonVC"
         },
+        @{@"title": @"Ai批量翻译",
+          @"class":@"GCTranslationViewController"
+        },
 
     ]];
     
@@ -54,7 +56,6 @@
     self.settingsTableView.separatorColor = [UIColor colorWithRed:30.0/255.0 green:30.0/255.0 blue:30.0/255.0 alpha:1.0];
     [self.settingsTableView setSeparatorInset:UIEdgeInsetsMake(0, 15, 0, 24)];
     
-    [self.settingsTableView registerClass:[SettingTableViewCell class] forCellReuseIdentifier:@"SettingCell"];
     [self.view addSubview:self.settingsTableView];
     [self.settingsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop).offset(40);

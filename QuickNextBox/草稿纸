@@ -11,3 +11,59 @@
                 make.centerX.mas_equalTo(0);
                 make.centerY.mas_equalTo(40);
     }];
+$(SRCROOT)/QuickNextBox/Supporting/PrefixHeader.pch
+/Users/lgc/ocp/QuickNextBox/QuickNextBox/Supporting/PrefixHeader.pch
+
+
+
+/*
+ 
+ 目标：一份中文稿 --- 》 多语言稿
+ 
+ 1、读入中文稿
+ xcode中的 文件 Localizable.strings (Chinese, Simplified)有下面的翻译需求，格式是 "translation key" = "translation value"，“;”作为分隔，一般会换行显示。
+"欢迎" = "欢迎";
+"首页" = "首页";
+"系统语言" = "系统语言";
+"学习案例" = "学习案例";
+"个人信息" = "个人信息";
+"设置" = "设置";
+"确定" = "取消";
+"进入" = "进入";
+"返回" = "返回";
+
+ 2、把中文稿Localizable.strings (Chinese, Simplified)按序切分。存入数组origin。
+
+ 3、数组分切 10行做为一翻译请求单元。 拼接格式化字符串。
+ 3.1 根据语言枚举，做多个分组。（例如，20个需要翻译 繁体中文、日语、英语、德语，则 20/10 * 4 = 8个请求单元）
+
+ 4、结合提示词
+ 【你是语言翻译专家。现在为IOS软件做适配多语言。翻译格式比较特殊。
+ ios语言适配文件Localizable.strings。
+ 需要翻译英语（用户可选）
+ 下面我会提供简体中文的母版。等号前面不翻译，翻译后面key的部分。】
+ 一组（10个）
+ "欢迎" = "欢迎";
+"首页" = "首页";
+。。。
+"返回" = "返回";
+ 
+ 
+ 5、拼接请求http
+ 6、发起网络请求
+ 7、解析请求，从中得到翻译的结果
+ 
+ 8、在所有翻译请求单元 请求结束后，把翻译结果重新写成文档，保存沙盒translation文件下。
+ 
+
+我之前做过豆包ai的图文请求接口代码。
+请你在在基础上完成 ’一份中文稿 --- 》 多语言稿’的改造
+
+
+ 
+ 
+ 
+ */
+ 
+ 
+

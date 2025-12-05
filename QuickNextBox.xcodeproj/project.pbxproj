@@ -35,6 +35,10 @@
 		C393EBE12ED8B874009545E6 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBE02ED8B874009545E6 /* CustomTabBar.m */; };
 		C393EBE32ED8B899009545E6 /* MainTabBarController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBE22ED8B87A009545E6 /* MainTabBarController2.m */; };
 		C393EBE72ED8BA06009545E6 /* ButtonDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBE62ED8B9F8009545E6 /* ButtonDisplayVC.m */; };
+		C39A20B22EE1D9DE00479A46 /* GCTranslationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */; };
+		C39A20B52EE1DA0C00479A46 /* DSKChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20B42EE1DA0C00479A46 /* DSKChatMessage.m */; };
+		C39A20B82EE1DA3E00479A46 /* DSKChatViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */; };
+		C39A20BB2EE1DAB000479A46 /* DouBaoAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20BA2EE1DAB000479A46 /* DouBaoAPIManager.m */; };
 		C3A426442EBF4485006E1200 /* 草稿纸 in Sources */ = {isa = PBXBuildFile; fileRef = C3A426432EBF4485006E1200 /* 草稿纸 */; };
 		C3A426472EBF5F19006E1200 /* MotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A426462EBF5F0D006E1200 /* MotionManager.m */; };
 		C3A61B742EC8B61C00F8EA23 /* LocationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A61B702EC8B61C00F8EA23 /* LocationHandler.m */; };
@@ -115,6 +119,14 @@
 		C393EBE22ED8B87A009545E6 /* MainTabBarController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController2.m; sourceTree = "<group>"; };
 		C393EBE52ED8B9F0009545E6 /* ButtonDisplayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonDisplayVC.h; sourceTree = "<group>"; };
 		C393EBE62ED8B9F8009545E6 /* ButtonDisplayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonDisplayVC.m; sourceTree = "<group>"; };
+		C39A20B02EE1D9DE00479A46 /* GCTranslationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCTranslationViewController.h; sourceTree = "<group>"; };
+		C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCTranslationViewController.m; sourceTree = "<group>"; };
+		C39A20B32EE1DA0C00479A46 /* DSKChatMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSKChatMessage.h; sourceTree = "<group>"; };
+		C39A20B42EE1DA0C00479A46 /* DSKChatMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSKChatMessage.m; sourceTree = "<group>"; };
+		C39A20B62EE1DA3E00479A46 /* DSKChatViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSKChatViewModel.h; sourceTree = "<group>"; };
+		C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSKChatViewModel.m; sourceTree = "<group>"; };
+		C39A20B92EE1DAB000479A46 /* DouBaoAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouBaoAPIManager.h; sourceTree = "<group>"; };
+		C39A20BA2EE1DAB000479A46 /* DouBaoAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouBaoAPIManager.m; sourceTree = "<group>"; };
 		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
 		C3A426452EBF5F02006E1200 /* MotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionManager.h; sourceTree = "<group>"; };
 		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
@@ -303,14 +315,8 @@
 			children = (
 				C3A426432EBF4485006E1200 /* 草稿纸 */,
 				C353C0B12EBF3DF2009DF25C /* Pages */,
-				C353C0BF2EBF3DF2009DF25C /* AppDelegate.h */,
-				C353C0C02EBF3DF2009DF25C /* AppDelegate.m */,
 				C353C0B42EBF3DF2009DF25C /* SDK */,
-				C353C0C12EBF3DF2009DF25C /* Assets.xcassets */,
-				C353C0C22EBF3DF2009DF25C /* Info.plist */,
-				C353C0C82EBF3DF2009DF25C /* main.m */,
-				C30EB87B2EC0BC0B0028805C /* Localizable.strings */,
-				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
+				C39A20AF2EE1D79E00479A46 /* Supporting */,
 			);
 			path = QuickNextBox;
 			sourceTree = "<group>";
@@ -416,8 +422,30 @@
 			isa = PBXGroup;
 			children = (
 				C3D323F02EDB42A900ED9CA7 /* 按钮 */,
+				C39A20B02EE1D9DE00479A46 /* GCTranslationViewController.h */,
+				C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */,
+				C39A20B32EE1DA0C00479A46 /* DSKChatMessage.h */,
+				C39A20B42EE1DA0C00479A46 /* DSKChatMessage.m */,
+				C39A20B62EE1DA3E00479A46 /* DSKChatViewModel.h */,
+				C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */,
+				C39A20B92EE1DAB000479A46 /* DouBaoAPIManager.h */,
+				C39A20BA2EE1DAB000479A46 /* DouBaoAPIManager.m */,
 			);
 			path = "ViewDisplay、";
+			sourceTree = "<group>";
+		};
+		C39A20AF2EE1D79E00479A46 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				C353C0BF2EBF3DF2009DF25C /* AppDelegate.h */,
+				C353C0C02EBF3DF2009DF25C /* AppDelegate.m */,
+				C30EB87B2EC0BC0B0028805C /* Localizable.strings */,
+				C353C0C12EBF3DF2009DF25C /* Assets.xcassets */,
+				C353C0C22EBF3DF2009DF25C /* Info.plist */,
+				C353C0C82EBF3DF2009DF25C /* main.m */,
+				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		C3A61B732EC8B61C00F8EA23 /* 定位 */ = {
@@ -643,6 +671,7 @@
 				C393EBD12ED74BE8009545E6 /* WifiDetector.m in Sources */,
 				C30EB8752EC0988B0028805C /* DemoItem.m in Sources */,
 				C30EB8702EC098710028805C /* AccelerometerVC.m in Sources */,
+				C39A20B82EE1DA3E00479A46 /* DSKChatViewModel.m in Sources */,
 				C3EC82722EC4DDFF0098F454 /* QNBNavigationController.m in Sources */,
 				C358974D2ECCCE7D00388B5A /* ImageCropViewController.m in Sources */,
 				C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */,
@@ -650,6 +679,7 @@
 				C393EBE12ED8B874009545E6 /* CustomTabBar.m in Sources */,
 				C31138972ED609E70024FE86 /* NetworkStatusMonitor.m in Sources */,
 				C3D323FF2EDC108100ED9CA7 /* UIImage+GCResize.m in Sources */,
+				C39A20BB2EE1DAB000479A46 /* DouBaoAPIManager.m in Sources */,
 				C3EC82632EC392FD0098F454 /* LRVideoPlayerManager.m in Sources */,
 				C3A61B792EC8B64500F8EA23 /* CoreDataManager.m in Sources */,
 				C393EBE72ED8BA06009545E6 /* ButtonDisplayVC.m in Sources */,
@@ -659,6 +689,7 @@
 				C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */,
 				C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */,
 				C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */,
+				C39A20B22EE1D9DE00479A46 /* GCTranslationViewController.m in Sources */,
 				C353C0D32EBF3DF2009DF25C /* MainTabBarController.m in Sources */,
 				C3A61B8C2EC8BA5E00F8EA23 /* Person+CoreDataClass.m in Sources */,
 				C3A61B8D2EC8BA5E00F8EA23 /* Person+CoreDataProperties.m in Sources */,
@@ -682,6 +713,7 @@
 				C353C0D92EBF3DF2009DF25C /* NSString+Localized.m in Sources */,
 				C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */,
 				C353C0DB2EBF3DF2009DF25C /* main.m in Sources */,
+				C39A20B52EE1DA0C00479A46 /* DSKChatMessage.m in Sources */,
 				C3D323F62EDB500D00ED9CA7 /* CustomButtonVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,9 +744,9 @@
 				CURRENT_PROJECT_VERSION = 202511070002;
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/QuickNextBox/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/lgc/ocp/QuickNextBox/QuickNextBox/Supporting/PrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickNextBox/Info.plist";
+				INFOPLIST_FILE = /Users/lgc/ocp/QuickNextBox/QuickNextBox/Supporting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickNextBox;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -749,9 +781,9 @@
 				CURRENT_PROJECT_VERSION = 202511070002;
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/QuickNextBox/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = /Users/lgc/ocp/QuickNextBox/QuickNextBox/Supporting/PrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "$(SRCROOT)/QuickNextBox/Info.plist";
+				INFOPLIST_FILE = /Users/lgc/ocp/QuickNextBox/QuickNextBox/Supporting/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = QuickNextBox;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
