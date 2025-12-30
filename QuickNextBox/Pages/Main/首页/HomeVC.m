@@ -34,6 +34,12 @@
         @{@"title": @"Ai批量翻译",
           @"class":@"GCTranslationViewController"
         },
+        @{@"title": @"安排测试",
+          @"class":@"APiViewController"
+        },
+                        @{@"title": @"haoyiche",
+          @"class":@"DeviceListViewController"
+        },
 
     ]];
     

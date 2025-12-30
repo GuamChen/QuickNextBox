@@ -30,11 +30,17 @@
 		C353C0DA2EBF3DF2009DF25C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C02EBF3DF2009DF25C /* AppDelegate.m */; };
 		C353C0DB2EBF3DF2009DF25C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C353C0C82EBF3DF2009DF25C /* main.m */; };
 		C358974D2ECCCE7D00388B5A /* ImageCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C358974C2ECCCE7100388B5A /* ImageCropViewController.m */; };
+		C3658B472F04257600DEE295 /* RideRecorder.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3658B462F04257600DEE295 /* RideRecorder.txt */; };
+		C3658B4A2F0425A600DEE295 /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3658B492F0425A600DEE295 /* DeviceListViewController.m */; };
+		C3658B4D2F042D2E00DEE295 /* DeviceUnaddedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3658B4C2F042CB000DEE295 /* DeviceUnaddedCell.m */; };
+		C3658B502F042D4A00DEE295 /* AddedDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C3658B4F2F042D3D00DEE295 /* AddedDeviceCell.m */; };
 		C393EBD12ED74BE8009545E6 /* WifiDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBD02ED74BE8009545E6 /* WifiDetector.m */; };
 		C393EBDE2ED8B85E009545E6 /* MainTabBarController2.h in Resources */ = {isa = PBXBuildFile; fileRef = C393EBDD2ED8B85E009545E6 /* MainTabBarController2.h */; };
 		C393EBE12ED8B874009545E6 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBE02ED8B874009545E6 /* CustomTabBar.m */; };
 		C393EBE32ED8B899009545E6 /* MainTabBarController2.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBE22ED8B87A009545E6 /* MainTabBarController2.m */; };
 		C393EBE72ED8BA06009545E6 /* ButtonDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C393EBE62ED8B9F8009545E6 /* ButtonDisplayVC.m */; };
+		C398B9EC2EF057EB00DEF4F4 /* APiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C398B9EB2EF057EB00DEF4F4 /* APiViewController.m */; };
+		C398B9EF2EF3067700DEF4F4 /* GCFileSizeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C398B9EE2EF3067700DEF4F4 /* GCFileSizeFormatter.m */; };
 		C39A20B22EE1D9DE00479A46 /* GCTranslationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */; };
 		C39A20B52EE1DA0C00479A46 /* DSKChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20B42EE1DA0C00479A46 /* DSKChatMessage.m */; };
 		C39A20B82EE1DA3E00479A46 /* DSKChatViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */; };
@@ -111,6 +117,13 @@
 		C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		C358974B2ECCCE6B00388B5A /* ImageCropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageCropViewController.h; sourceTree = "<group>"; };
 		C358974C2ECCCE7100388B5A /* ImageCropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageCropViewController.m; sourceTree = "<group>"; };
+		C3658B462F04257600DEE295 /* RideRecorder.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = RideRecorder.txt; sourceTree = "<group>"; };
+		C3658B482F0425A600DEE295 /* DeviceListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceListViewController.h; sourceTree = "<group>"; };
+		C3658B492F0425A600DEE295 /* DeviceListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceListViewController.m; sourceTree = "<group>"; };
+		C3658B4B2F042CAA00DEE295 /* DeviceUnaddedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceUnaddedCell.h; sourceTree = "<group>"; };
+		C3658B4C2F042CB000DEE295 /* DeviceUnaddedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceUnaddedCell.m; sourceTree = "<group>"; };
+		C3658B4E2F042D3600DEE295 /* AddedDeviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddedDeviceCell.h; sourceTree = "<group>"; };
+		C3658B4F2F042D3D00DEE295 /* AddedDeviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddedDeviceCell.m; sourceTree = "<group>"; };
 		C393EBCF2ED74BE8009545E6 /* WifiDetector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WifiDetector.h; sourceTree = "<group>"; };
 		C393EBD02ED74BE8009545E6 /* WifiDetector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WifiDetector.m; sourceTree = "<group>"; };
 		C393EBDD2ED8B85E009545E6 /* MainTabBarController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarController2.h; sourceTree = "<group>"; };
@@ -119,6 +132,10 @@
 		C393EBE22ED8B87A009545E6 /* MainTabBarController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController2.m; sourceTree = "<group>"; };
 		C393EBE52ED8B9F0009545E6 /* ButtonDisplayVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonDisplayVC.h; sourceTree = "<group>"; };
 		C393EBE62ED8B9F8009545E6 /* ButtonDisplayVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonDisplayVC.m; sourceTree = "<group>"; };
+		C398B9EA2EF057EB00DEF4F4 /* APiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APiViewController.h; sourceTree = "<group>"; };
+		C398B9EB2EF057EB00DEF4F4 /* APiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APiViewController.m; sourceTree = "<group>"; };
+		C398B9ED2EF3067200DEF4F4 /* GCFileSizeFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCFileSizeFormatter.h; sourceTree = "<group>"; };
+		C398B9EE2EF3067700DEF4F4 /* GCFileSizeFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCFileSizeFormatter.m; sourceTree = "<group>"; };
 		C39A20B02EE1D9DE00479A46 /* GCTranslationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCTranslationViewController.h; sourceTree = "<group>"; };
 		C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCTranslationViewController.m; sourceTree = "<group>"; };
 		C39A20B32EE1DA0C00479A46 /* DSKChatMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSKChatMessage.h; sourceTree = "<group>"; };
@@ -127,6 +144,7 @@
 		C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSKChatViewModel.m; sourceTree = "<group>"; };
 		C39A20B92EE1DAB000479A46 /* DouBaoAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DouBaoAPIManager.h; sourceTree = "<group>"; };
 		C39A20BA2EE1DAB000479A46 /* DouBaoAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DouBaoAPIManager.m; sourceTree = "<group>"; };
+		C39A20BD2EEB1C1E00479A46 /* RideRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RideRecorder.h; sourceTree = "<group>"; };
 		C3A426432EBF4485006E1200 /* 草稿纸 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "草稿纸"; sourceTree = "<group>"; };
 		C3A426452EBF5F02006E1200 /* MotionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionManager.h; sourceTree = "<group>"; };
 		C3A426462EBF5F0D006E1200 /* MotionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionManager.m; sourceTree = "<group>"; };
@@ -321,6 +339,20 @@
 			path = QuickNextBox;
 			sourceTree = "<group>";
 		};
+		C3658B452F04254E00DEE295 /* 好益车 */ = {
+			isa = PBXGroup;
+			children = (
+				C3658B462F04257600DEE295 /* RideRecorder.txt */,
+				C3658B482F0425A600DEE295 /* DeviceListViewController.h */,
+				C3658B492F0425A600DEE295 /* DeviceListViewController.m */,
+				C3658B4B2F042CAA00DEE295 /* DeviceUnaddedCell.h */,
+				C3658B4C2F042CB000DEE295 /* DeviceUnaddedCell.m */,
+				C3658B4E2F042D3600DEE295 /* AddedDeviceCell.h */,
+				C3658B4F2F042D3D00DEE295 /* AddedDeviceCell.m */,
+			);
+			path = "好益车";
+			sourceTree = "<group>";
+		};
 		C373442F2EDC3F84002877C5 /* 发现 */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,15 +453,14 @@
 		C393EBE42ED8B9D6009545E6 /* ViewDisplay、 */ = {
 			isa = PBXGroup;
 			children = (
+				C3658B452F04254E00DEE295 /* 好益车 */,
+				C39A20BD2EEB1C1E00479A46 /* RideRecorder.h */,
 				C3D323F02EDB42A900ED9CA7 /* 按钮 */,
-				C39A20B02EE1D9DE00479A46 /* GCTranslationViewController.h */,
-				C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */,
-				C39A20B32EE1DA0C00479A46 /* DSKChatMessage.h */,
-				C39A20B42EE1DA0C00479A46 /* DSKChatMessage.m */,
-				C39A20B62EE1DA3E00479A46 /* DSKChatViewModel.h */,
-				C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */,
-				C39A20B92EE1DAB000479A46 /* DouBaoAPIManager.h */,
-				C39A20BA2EE1DAB000479A46 /* DouBaoAPIManager.m */,
+				C39A20BC2EEB1BFC00479A46 /* AI翻译 */,
+				C398B9EA2EF057EB00DEF4F4 /* APiViewController.h */,
+				C398B9EB2EF057EB00DEF4F4 /* APiViewController.m */,
+				C398B9ED2EF3067200DEF4F4 /* GCFileSizeFormatter.h */,
+				C398B9EE2EF3067700DEF4F4 /* GCFileSizeFormatter.m */,
 			);
 			path = "ViewDisplay、";
 			sourceTree = "<group>";
@@ -446,6 +477,21 @@
 				C353C0C92EBF3DF2009DF25C /* PrefixHeader.pch */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		C39A20BC2EEB1BFC00479A46 /* AI翻译 */ = {
+			isa = PBXGroup;
+			children = (
+				C39A20B02EE1D9DE00479A46 /* GCTranslationViewController.h */,
+				C39A20B12EE1D9DE00479A46 /* GCTranslationViewController.m */,
+				C39A20B32EE1DA0C00479A46 /* DSKChatMessage.h */,
+				C39A20B42EE1DA0C00479A46 /* DSKChatMessage.m */,
+				C39A20B62EE1DA3E00479A46 /* DSKChatViewModel.h */,
+				C39A20B72EE1DA3E00479A46 /* DSKChatViewModel.m */,
+				C39A20B92EE1DAB000479A46 /* DouBaoAPIManager.h */,
+				C39A20BA2EE1DAB000479A46 /* DouBaoAPIManager.m */,
+			);
+			path = "AI翻译";
 			sourceTree = "<group>";
 		};
 		C3A61B732EC8B61C00F8EA23 /* 定位 */ = {
@@ -606,6 +652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3658B472F04257600DEE295 /* RideRecorder.txt in Resources */,
 				C393EBDE2ED8B85E009545E6 /* MainTabBarController2.h in Resources */,
 				C353C0CB2EBF3DF2009DF25C /* Assets.xcassets in Resources */,
 				C30EB87D2EC0BC0B0028805C /* Localizable.strings in Resources */,
@@ -647,13 +694,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-QuickNextBox/Pods-QuickNextBox-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -677,6 +720,7 @@
 				C30EB8712EC098710028805C /* MBHudDemoVC.m in Sources */,
 				C353C0D12EBF3DF2009DF25C /* DiscoverVC.m in Sources */,
 				C393EBE12ED8B874009545E6 /* CustomTabBar.m in Sources */,
+				C3658B502F042D4A00DEE295 /* AddedDeviceCell.m in Sources */,
 				C31138972ED609E70024FE86 /* NetworkStatusMonitor.m in Sources */,
 				C3D323FF2EDC108100ED9CA7 /* UIImage+GCResize.m in Sources */,
 				C39A20BB2EE1DAB000479A46 /* DouBaoAPIManager.m in Sources */,
@@ -686,6 +730,8 @@
 				C3027E4C2EBF9B890049FEBC /* MD5Tool.m in Sources */,
 				C3A61B7F2EC8B6C300F8EA23 /* CoreDataViewController.m in Sources */,
 				C3EC826D2EC4D9CA0098F454 /* QNB25_PDFViewController.m in Sources */,
+				C3658B4D2F042D2E00DEE295 /* DeviceUnaddedCell.m in Sources */,
+				C398B9EF2EF3067700DEF4F4 /* GCFileSizeFormatter.m in Sources */,
 				C3EC82662EC393680098F454 /* LRVideoPlayerViewController.m in Sources */,
 				C353C0D22EBF3DF2009DF25C /* HomeVC.m in Sources */,
 				C3EC826A2EC4D99B0098F454 /* PDFManager.m in Sources */,
@@ -698,6 +744,8 @@
 				C3A61B7C2EC8B6A400F8EA23 /* PersonManager.m in Sources */,
 				C3D323F92EDC009600ED9CA7 /* GCBaseViewController.m in Sources */,
 				C3A426442EBF4485006E1200 /* 草稿纸 in Sources */,
+				C3658B4A2F0425A600DEE295 /* DeviceListViewController.m in Sources */,
+				C398B9EC2EF057EB00DEF4F4 /* APiViewController.m in Sources */,
 				C353C0D42EBF3DF2009DF25C /* ProfileVC.m in Sources */,
 				C353C0D52EBF3DF2009DF25C /* TabBarItemConfig.m in Sources */,
 				C353C0D62EBF3DF2009DF25C /* MBProgressHUD.m in Sources */,
@@ -740,6 +788,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 202511070002;
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
@@ -762,6 +811,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lgc.QuickNextBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "QuickNextBox/Pages/New Group/QuickNextBox-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -777,6 +827,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 202511070002;
 				DEVELOPMENT_TEAM = 3SAAZZPM76;
@@ -799,6 +850,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lgc.QuickNextBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "QuickNextBox/Pages/New Group/QuickNextBox-Bridging-Header.h";
 				SWIFT_VERSION = 6.0;
